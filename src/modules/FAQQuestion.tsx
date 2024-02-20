@@ -43,7 +43,7 @@ export default function FAQQuestion({ className, question, children }: IProps) {
         })}
       >
         <div className="faq-question__body-inner">
-          <Text>{children}</Text>
+          <Text small>{children}</Text>
         </div>
       </div>
     </div>
