@@ -12,5 +12,10 @@
   a {
     text-decoration: underline;
     color: $white;
+    transition: 0.2s opacity;
+
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }
