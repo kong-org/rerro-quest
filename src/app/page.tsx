@@ -207,28 +207,47 @@ export default function Home() {
                 to see your place among adventurers.
               </p>
             </FAQQuestion>
-            <FAQQuestion question="Tracking Your Triumphs">
+
+            <FAQQuestion question="Forge Connections, Seek Assistance">
               <p>
-                Visit <Link href="/leaderboard">rerro.quest/leaderboard</Link>{" "}
-                to see your place among adventurers.
+                Follow{" "}
+                <Link target="_blank" href="https://x.com/Kongiscash">
+                  @kongiscash
+                </Link>{" "}
+                and join the #rerro-quest channel in the{" "}
+                <Link target="_blank" href="https://discord.gg/dypeg4JfTX">
+                  KONG Land Discord
+                </Link>{" "}
+                for guidance and camaraderie on your quest.
               </p>
             </FAQQuestion>
-            <FAQQuestion question="Tracking Your Triumphs">
+            <FAQQuestion question="What is KONG Land?">
               <p>
-                Visit <Link href="/leaderboard">rerro.quest/leaderboard</Link>{" "}
-                to see your place among adventurers.
+                KONG Land is an experimental cryptostate with a mission to
+                bridge the physical world to the digital metaverse through
+                global adoption of its public good, secure chip technology.
+              </p>
+
+              <p>
+                Learn more at{" "}
+                <Link target="_blank" href="https://kong.land/KONG.land"></Link>
+                .
               </p>
             </FAQQuestion>
-            <FAQQuestion question="Tracking Your Triumphs">
+            <FAQQuestion question="What are HaLo secure chips?">
               <p>
-                Visit <Link href="/leaderboard">rerro.quest/leaderboard</Link>{" "}
-                to see your place among adventurers.
+                HaLo secure chips, developed by Arx Research—the manufacturing
+                hub of KONG Land— transform physical objects into digital
+                assets. These chips use ECDSA signatures to authenticate and
+                link physical items to digital equivalents, such as ERC-20
+                tokens and NFTs. They're immutable, composable, and powerful,
+                supporting a broad array of decentralized applications.
               </p>
-            </FAQQuestion>
-            <FAQQuestion question="Tracking Your Triumphs">
               <p>
-                Visit <Link href="/leaderboard">rerro.quest/leaderboard</Link>{" "}
-                to see your place among adventurers.
+                Discover more at{" "}
+                <Link target="_blank" href="http://arx.org">
+                  Arx.org
+                </Link>
               </p>
             </FAQQuestion>
           </Box>

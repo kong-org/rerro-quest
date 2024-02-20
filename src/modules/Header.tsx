@@ -39,12 +39,20 @@ export default function Header({ className }: IProps) {
         <div className="header__flex">
           <ul className="header-icons">
             <li className="header-icons__item">
-              <Link className="header-icons__anchor" href="https://x.com">
+              <Link
+                className="header-icons__anchor"
+                href="https://x.com/Kongiscash"
+                target="_blank"
+              >
                 <XIcon />
               </Link>
             </li>
             <li className="header-icons__item">
-              <Link className="header-icons__anchor" href="https://google.com">
+              <Link
+                className="header-icons__anchor"
+                href="https://warpcast.com/~/channel/kongland"
+                target="_blank"
+              >
                 <BankIcon />
               </Link>
             </li>
