@@ -5,16 +5,10 @@
   bottom: 0;
   left: 50%;
   z-index: 20;
-  transform: translate(-50%, 100%);
-  transition: 0.2s transform;
 
   @media (min-width: $largebp) {
     width: 320px;
     height: 70px;
-  }
-
-  &--active {
-    transform: translate(-50%, 0%);
   }
 
   &__text {

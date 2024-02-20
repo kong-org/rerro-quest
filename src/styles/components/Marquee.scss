@@ -16,13 +16,17 @@
 
   &:after,
   &:before {
-    width: 150px;
+    width: 100px;
     height: 100%;
     content: "";
     top: 0;
     content: "";
     position: absolute;
     z-index: 2;
+
+    @media (min-width: $largebp) {
+      width: 150px;
+    }
   }
 
   &:before {

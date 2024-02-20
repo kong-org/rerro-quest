@@ -29,6 +29,11 @@
 
   &__anchor {
     color: $white;
+    transition: 0.2s opacity;
+
+    &:hover {
+      opacity: 0.75;
+    }
   }
 }
 
@@ -39,5 +44,9 @@
 
   &__anchor {
     color: $white;
+    transition: 0.2s opacity;
+
+    &:hover {
+      opacity: 0.75;
   }
 }

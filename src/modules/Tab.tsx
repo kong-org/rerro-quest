@@ -12,29 +12,8 @@ interface IProps {
 }
 
 export default function Tab({ className, children, href }: IProps) {
-  const [isActive, setIsActive] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20 && !isActive) {
-        setIsActive(true);
-      } else if (window.scrollY <= 20 && isActive) {
-        setIsActive(false);
-      }
-    };
-
-    handleScroll();
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isActive]);
-
   return (
-    <Link
-      className={classNames("tab", { "tab--active": isActive }, className)}
-      href={href}
-    >
+    <Link className={classNames("tab", className)} href={href}>
       <TabIcon />
       <span className="tab__text">{children}</span>
     </Link>
