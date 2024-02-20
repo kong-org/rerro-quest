@@ -1,0 +1,57 @@
+@for $i from 1 through 20 {
+  .mt-#{$i} {
+    margin-top: 4px * $i;
+  }
+
+  .mb-#{$i} {
+    margin-bottom: 4px * $i;
+  }
+
+  .mr-#{$i} {
+    margin-right: 4px * $i;
+  }
+
+  .ml-#{$i} {
+    margin-left: 4px * $i;
+  }
+
+  .pt-#{$i} {
+    padding-top: 4px * $i;
+  }
+
+  .pb-#{$i} {
+    padding-bottom: 4px * $i;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.space-y-1\.25 {
+  & > * + * {
+    margin-top: 5px;
+  }
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-3 {
+  @media (min-width: $largebp) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.gap-1\.25 {
+  gap: 5px;
+}
+
+.text-white {
+  color: $white;
+}

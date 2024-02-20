@@ -1,0 +1,24 @@
+.by-kongland {
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1;
+
+  &__by {
+    display: block;
+    color: white;
+    font-size: 12px;
+  }
+
+  &__kong {
+    background: $pinkYellowGradient;
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.6px;
+    text-transform: uppercase;
+  }
+}

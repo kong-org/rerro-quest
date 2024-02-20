@@ -1,0 +1,41 @@
+.faq-question {
+  border-bottom: 1px solid rgba(252, 252, 252, 0.2);
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 20px 0;
+
+    h3 {
+      flex: 1;
+    }
+  }
+
+  .circle-icon {
+    transition: 0.2s transform;
+  }
+
+  &--active .circle-icon {
+    transform: rotate(180deg);
+  }
+
+  &__body {
+    transition:
+      max-height 0.2s ease-in-out,
+      opacity 0.2s ease-in-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  &--active &__body {
+    max-height: 300px;
+    opacity: 1;
+  }
+
+  &__body-inner {
+    padding-bottom: 20px;
+  }
+}

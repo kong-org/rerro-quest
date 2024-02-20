@@ -1,0 +1,63 @@
+.marquee {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  position: relative;
+
+  &--light {
+    color: $white;
+  }
+
+  &--dark {
+    color: $black;
+  }
+
+  &:after,
+  &:before {
+    width: 150px;
+    height: 100%;
+    content: "";
+    top: 0;
+    content: "";
+    position: absolute;
+    z-index: 2;
+  }
+
+  &:before {
+    left: 0;
+  }
+
+  &:after {
+    right: 0;
+  }
+
+  &--light:before {
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, $bg 100%);
+  }
+
+  &--light:after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $bg 100%);
+  }
+
+  &--dark:before {
+    background: linear-gradient(-90deg, rgba(255, 255, 255, 0) 0%, $white 100%);
+  }
+
+  &--dark:after {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, $white 100%);
+  }
+
+  &__slide {
+    display: inline-flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    animation: 8s infinite slideLeft linear;
+  }
+
+  svg {
+    display: inline-flex;
+    vertical-align: middle;
+  }
+}

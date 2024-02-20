@@ -1,0 +1,13 @@
+.button {
+  display: inline-flex;
+  line-height: 32px;
+  padding: 0 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 12px;
+
+  &--black {
+    background: $black;
+    color: $white;
+  }
+}

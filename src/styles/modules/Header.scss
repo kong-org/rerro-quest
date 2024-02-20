@@ -1,0 +1,43 @@
+.header {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 20;
+  transition:
+    0.2s background-color,
+    0.2s backdrop-filter;
+
+  &__flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &--blurred-back {
+    background: rgba(12, 12, 12, 0.7);
+    backdrop-filter: blur(50px);
+  }
+}
+
+.header-icons {
+  display: inline-flex;
+  align-items: center;
+  gap: 20px;
+
+  &__anchor {
+    color: $white;
+  }
+}
+
+.header-nav {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 12px;
+
+  &__anchor {
+    color: $white;
+  }
+}

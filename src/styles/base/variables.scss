@@ -1,0 +1,43 @@
+// Colors
+$white: #fcfcfc;
+$black: #1e2126;
+$bg: #1e2126;
+$orangeRedGradient: linear-gradient(
+  180deg,
+  rgba(255, 138, 0, 1) 0%,
+  rgba(255, 15, 0, 1) 100%
+);
+$pink: #fce9e3;
+$yellow: #ffd70e;
+$grey: #3e4046;
+$pinkYellowGradient: linear-gradient(90deg, #ff00a8 23.66%, #ffd70e 81.72%);
+
+// fonts
+$font:
+  system-ui,
+  -apple-system,
+  BlinkMacSystemFont,
+  "Segoe UI",
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  "Open Sans",
+  "Helvetica Neue",
+  sans-serif;
+
+// Breakpoints
+$tinybp: 374px;
+$smallbp: 500px;
+$smbp: 640px;
+$mediumbp: 800px;
+$largebp: 960px;
+$xlargebp: 1100px;
+
+// Transitions
+$fadeOff:
+  left 0s 0.2s,
+  opacity 0.2s;
+$fadeOn:
+  left 0s,
+  opacity 0.2s;

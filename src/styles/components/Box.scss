@@ -1,0 +1,16 @@
+.box {
+  border-radius: 16px;
+  padding: 24px;
+
+  &--white {
+    background: $white;
+  }
+
+  &--yellow {
+    background: $yellow;
+  }
+
+  &--grey {
+    background: $grey;
+  }
+}

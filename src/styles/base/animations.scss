@@ -1,0 +1,17 @@
+@keyframes slideBackgroundUp {
+  from {
+    background-position: 0 0%;
+  }
+  to {
+    background-position: 0 -100%;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
