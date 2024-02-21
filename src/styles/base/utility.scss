@@ -22,10 +22,26 @@
   .pb-#{$i} {
     padding-bottom: 4px * $i;
   }
+
+  .pr-#{$i} {
+    padding-right: 4px * $i;
+  }
+
+  .pl-#{$i} {
+    padding-left: 4px * $i;
+  }
+
+  .w-#{$i} {
+    width: 4px * $i;
+  }
 }
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
 }
 
 .uppercase {
@@ -54,4 +70,42 @@
 
 .text-white {
   color: $white;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.border-light {
+  border-color: $borderLight;
+}
+
+.border-dark {
+  border-color: $borderDark;
+}
+
+.border-b {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.rounded-full {
+  border-radius: 100px;
+}
+
+.image {
+  width: 100%;
+  height: auto;
 }

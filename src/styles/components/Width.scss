@@ -1,5 +1,12 @@
 .width {
   max-width: 900px;
-  width: calc(100% - 40px);
   margin: 0 auto;
+
+  &--padding-normal {
+    width: calc(100% - 40px);
+  }
+
+  &--padding-tight {
+    width: calc(100% - 16px);
+  }
 }

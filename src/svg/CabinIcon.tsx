@@ -17,8 +17,8 @@ export default function CabinIcon({ className }: IProps) {
       />
 
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M.844 10.875 15.844 0l15 10.875V30H17.678v-4.502h6.417L15.845 6.75l-8.25 18.748h6.415V30H.844V10.875Z"
         fill="currentColor"
       />

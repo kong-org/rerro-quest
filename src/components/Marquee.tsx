@@ -19,8 +19,9 @@ export default function Marquee({
 }: IProps) {
   return (
     <div className={classNames("marquee", `marquee--${color}`, className)}>
-      {[...Array(repeats)].map(() => (
+      {[...Array(repeats)].map((a, i) => (
         <div
+          key={i}
           className="marquee__slide"
           style={{ animationDuration: `${speed}s`, width: slideWidth }}
         >

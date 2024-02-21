@@ -37,9 +37,9 @@ export default function Home() {
             <Image
               width="730"
               height="220"
+              className="image"
               src="/images/logo.png"
               alt="$RERRO Quest"
-              layout="responsive"
             />
           </h1>
           <ByKongland className="mt-8" />
@@ -55,22 +55,22 @@ export default function Home() {
           <Box>
             <MaxWidth size="510">
               <Image
+                className="image"
                 width="511"
                 height="350"
                 src="/images/cupcakes.png"
                 alt="Orbs"
-                layout="responsive"
               />
             </MaxWidth>
 
             <MaxWidth size="430">
               <h2>
                 <Image
+                  className="image"
                   width="430"
                   height="100"
                   src="/images/guardians.png"
                   alt="Join forces with The Guardians of Kong"
-                  layout="responsive"
                 />
               </h2>
             </MaxWidth>
@@ -116,11 +116,11 @@ export default function Home() {
           <Box>
             <MaxWidth size="320" className="mt-8">
               <Image
+                className="image"
                 width="320"
                 height="60"
                 src="/images/quest.png"
                 alt="Start your quest"
-                layout="responsive"
               />
             </MaxWidth>
 

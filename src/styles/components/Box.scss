@@ -1,6 +1,5 @@
 .box {
   border-radius: 16px;
-  padding: 24px;
 
   &--white {
     background: $white;
@@ -12,5 +11,13 @@
 
   &--grey {
     background: $grey;
+  }
+
+  &--padding-none {
+    padding: 0;
+  }
+
+  &--padding-normal {
+    padding: 24px;
   }
 }

@@ -1,0 +1,27 @@
+.table-cell {
+  font-weight: 500;
+
+  &--xs {
+    width: 40px;
+  }
+
+  &--s {
+    width: 64px;
+  }
+
+  &--m {
+    width: 80px;
+  }
+
+  &--l {
+    width: 104px;
+  }
+
+  &--xl {
+    width: 132px;
+  }
+
+  &--flex {
+    flex: 1;
+  }
+}

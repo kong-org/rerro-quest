@@ -16,7 +16,7 @@ export default function TabIcon() {
       </g>
       <path
         stroke="#FF00A8"
-        stroke-miterlimit="10"
+        strokeMiterlimit="10"
         d="M321 71H1l31.35-57.11C36.69 5.99 45.55 1 55.24 1h211.52c9.69 0 18.55 4.99 22.89 12.89L321 71Z"
       />
       <defs>
@@ -28,8 +28,8 @@ export default function TabIcon() {
           y2="71"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FFD70E" />
-          <stop offset="1" stop-color="#FF0F00" />
+          <stop stopColor="#FFD70E" />
+          <stop offset="1" stopColor="#FF0F00" />
         </linearGradient>
         <filter
           id="a"
@@ -37,10 +37,10 @@ export default function TabIcon() {
           height="71"
           x=".155"
           y=".5"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
           filterUnits="userSpaceOnUse"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feBlend in="SourceGraphic" in2="BackgroundImageFix" result="shape" />
           <feColorMatrix
             in="SourceAlpha"

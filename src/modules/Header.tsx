@@ -9,9 +9,10 @@ import Link from "next/link";
 
 interface IProps {
   className?: string;
+  showBack?: boolean;
 }
 
-export default function Header({ className }: IProps) {
+export default function Header({ className, showBack }: IProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -59,9 +60,15 @@ export default function Header({ className }: IProps) {
           </ul>
           <ul className="header-nav">
             <li className="header-nav__item">
-              <Link className="header-nav__anchor" href="/leaderboards">
-                Leaderboards
-              </Link>
+              {!showBack ? (
+                <Link className="header-nav__anchor" href="/leaderboards">
+                  Leaderboards
+                </Link>
+              ) : (
+                <Link className="header-nav__anchor" href="/">
+                  Back
+                </Link>
+              )}
             </li>
           </ul>
         </div>

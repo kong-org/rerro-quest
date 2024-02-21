@@ -3,12 +3,12 @@ import classNames from "classnames";
 interface IProps {
   className?: string;
   children?: React.ReactNode;
-  small?: boolean;
+  size?: "xs" | "s" | "base";
 }
 
-export default function Text({ className, children, small }: IProps) {
+export default function Text({ className, children, size = "base" }: IProps) {
   return (
-    <div className={classNames("text", { "text--small": small }, className)}>
+    <div className={classNames("text", `text--${size}`, className)}>
       {children}
     </div>
   );
