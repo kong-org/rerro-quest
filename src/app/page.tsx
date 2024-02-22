@@ -54,13 +54,9 @@ export default function Home() {
         <div className="space-y-1.25">
           <Box>
             <MaxWidth size="510">
-              <Image
-                className="image"
-                width="511"
-                height="350"
-                src="/images/cupcakes.png"
-                alt="Orbs"
-              />
+              <video autoPlay loop playsInline muted poster="/images/orbs.mp4">
+                <source src="/videos/orbs.mp4" />
+              </video>
             </MaxWidth>
 
             <MaxWidth size="430">
