@@ -122,7 +122,7 @@ export default function page() {
 
           {scores.map((score, i) => {
             return (
-              <div className="pt-3 pb-3 pr-3 pl-3">
+              <div className="pt-1 pb-1 pr-3 pl-3">
                 <TableRow highlighted={i === 2}>
                   <TableCell size="s">
                     <TinyBadge>{i + 1}</TinyBadge>
