@@ -1,7 +1,7 @@
-import Box from "@/components/Box";
-import Button from "@/components/Button";
-import Heading from "@/components/Heading";
-import MaxWidth from "@/components/MaxWidth";
+import Box from "@/app/components/Box";
+import Button from "@/app/components/Button";
+import Heading from "@/app/components/Heading";
+import MaxWidth from "@/app/components/MaxWidth";
 import classNames from "classnames";
 import Image from "next/image";
 

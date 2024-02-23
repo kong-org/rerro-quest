@@ -1,0 +1,54 @@
+.button {
+  display: inline-flex;
+  font-weight: bold;
+  border-radius: 6px;
+  text-transform: uppercase;
+
+  // Sizes
+
+  &--s {
+    line-height: 32px;
+    font-size: 12px;
+    padding: 0 20px;
+  }
+
+  &--l {
+    line-height: 48px;
+    font-size: 16px;
+    padding: 0 40px;
+  }
+
+  // Colors
+
+  &--black {
+    background: $black;
+    color: $white;
+  }
+
+  &--black-gradient {
+    background: linear-gradient(180deg, rgba(30, 33, 38, 0.7) 0%, #1e2126 100%),
+      #fcfcfc;
+    color: $white;
+  }
+
+  &--orange-gradient {
+    line-height: 46px;
+    color: $white;
+    border: 1px solid #ff6b00;
+    background: linear-gradient(180deg, #ffd70e 0%, #ff0f00 100%);
+  }
+
+  // Effects
+
+  &--shadow {
+    box-shadow: 0px 3px 0px 0px rgba(252, 252, 252, 0.5) inset;
+  }
+
+  // Width
+
+  &--full-width {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}

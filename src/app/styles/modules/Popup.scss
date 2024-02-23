@@ -1,0 +1,30 @@
+.popup {
+  background: rgba(30, 33, 38, 0.9);
+  position: fixed;
+  z-index: 8888888888;
+  top: 0;
+  left: -9999px;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: $fadeOff;
+  display: flex;
+
+  &--active {
+    left: 0;
+    transition: $fadeOn;
+    opacity: 1;
+  }
+
+  &__inner {
+    margin-top: auto;
+    margin-bottom: 20px;
+    width: 100%;
+    transform: translateY(calc(100% + 20px));
+    transition: 0.4s transform;
+  }
+
+  &--active &__inner {
+    transform: none;
+  }
+}

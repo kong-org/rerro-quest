@@ -1,15 +1,15 @@
-import Box from "@/components/Box";
-import Heading from "@/components/Heading";
-import MaxWidth from "@/components/MaxWidth";
-import TableCell from "@/components/TableCell";
-import TableHeader from "@/components/TableHeader";
-import TableRow from "@/components/TableRow";
-import Text from "@/components/Text";
-import TinyBadge from "@/components/TinyBadge";
-import Width from "@/components/Width";
-import Footer from "@/modules/Footer";
-import Header from "@/modules/Header";
-import Hero from "@/modules/Hero";
+import Box from "@/app/components/Box";
+import Heading from "@/app/components/Heading";
+import MaxWidth from "@/app/components/MaxWidth";
+import TableCell from "@/app/components/TableCell";
+import TableHeader from "@/app/components/TableHeader";
+import TableRow from "@/app/components/TableRow";
+import Text from "@/app/components/Text";
+import PlainBadge from "@/app/components/PlainBadge";
+import Width from "@/app/components/Width";
+import Footer from "@/app/modules/Footer";
+import Header from "@/app/modules/Header";
+import Hero from "@/app/modules/Hero";
 import Image from "next/image";
 
 const scores = [
@@ -125,7 +125,7 @@ export default function page() {
               <div className="pt-1 pb-1 pr-3 pl-3">
                 <TableRow highlighted={i === 2}>
                   <TableCell size="s">
-                    <TinyBadge>{i + 1}</TinyBadge>
+                    <PlainBadge>{i + 1}</PlainBadge>
                   </TableCell>
                   <TableCell size="m">
                     <Text size="xs" className="uppercase">

@@ -1,6 +1,6 @@
 "use client";
 
-import TabIcon from "@/svg/TabIcon";
+import TabIcon from "@/app/svg/TabIcon";
 import classNames from "classnames";
 import Link from "next/link";
 import { useEffect, useState } from "react";

@@ -1,32 +1,41 @@
-import Badge from "@/components/Badge";
-import Box from "@/components/Box";
-import ByKongland from "@/components/ByKongland";
-import Heading from "@/components/Heading";
-import Marquee from "@/components/Marquee";
-import MaxWidth from "@/components/MaxWidth";
-import Tab from "@/modules/Tab";
-import Text from "@/components/Text";
-import Width from "@/components/Width";
-import FAQQuestion from "@/modules/FAQQuestion";
-import Footer from "@/modules/Footer";
-import Header from "@/modules/Header";
-import Hero from "@/modules/Hero";
-import TokenBlock from "@/modules/TokenBlock";
-import ArxIcon from "@/svg/ArxIcon";
-import AzukiIcon from "@/svg/AzukiIcon";
-import CabinIcon from "@/svg/CabinIcon";
-import CoolcatsIcon from "@/svg/CoolcatsIcon";
-import DropIcon from "@/svg/DropIcon";
-import FaceIcon from "@/svg/FaceIcon";
-import GlassesIcon from "@/svg/GlassesIcon";
-import KrauseIcon from "@/svg/KrauseIcon";
-import MetaIcon from "@/svg/MetaIcon";
-import OrbIcon from "@/svg/OrbIcon";
-import PoolsuiteIcon from "@/svg/PoolsuiteIcon";
+"use client";
+
+import Badge from "@/app/components/Badge";
+import Box from "@/app/components/Box";
+import ByKongland from "@/app/components/ByKongland";
+import Heading from "@/app/components/Heading";
+import Marquee from "@/app/components/Marquee";
+import MaxWidth from "@/app/components/MaxWidth";
+import Tab from "@/app/modules/Tab";
+import Text from "@/app/components/Text";
+import Width from "@/app/components/Width";
+import FAQQuestion from "@/app/modules/FAQQuestion";
+import Footer from "@/app/modules/Footer";
+import Header from "@/app/modules/Header";
+import Hero from "@/app/modules/Hero";
+import TokenBlock from "@/app/modules/TokenBlock";
+import ArxIcon from "@/app/svg/ArxIcon";
+import AzukiIcon from "@/app/svg/AzukiIcon";
+import CabinIcon from "@/app/svg/CabinIcon";
+import CoolcatsIcon from "@/app/svg/CoolcatsIcon";
+import DropIcon from "@/app/svg/DropIcon";
+import FaceIcon from "@/app/svg/FaceIcon";
+import GlassesIcon from "@/app/svg/GlassesIcon";
+import KrauseIcon from "@/app/svg/KrauseIcon";
+import MetaIcon from "@/app/svg/MetaIcon";
+import OrbIcon from "@/app/svg/OrbIcon";
+import PoolsuiteIcon from "@/app/svg/PoolsuiteIcon";
 import Image from "next/image";
 import Link from "next/link";
+import { Overlay } from "@/app/modules/Overlay";
+import PlainBadge from "@/app/components/PlainBadge";
+import Popup from "@/app/modules/Popup";
+import Button from "@/app/components/Button";
+import Field from "@/app/components/Field";
 
 export default function Home() {
+  const close = () => {};
+
   return (
     <>
       <Header />
@@ -259,8 +268,47 @@ export default function Home() {
           </Box>
         </div>
       </Width>
+
       <Footer />
+
       <Tab href="/">Start scanning</Tab>
+
+      <Overlay active={false} onClose={close}>
+        <MaxWidth size="350" className="text-center">
+          <Image
+            className="image"
+            width="350"
+            height="200"
+            src="/images/congrats.png"
+            alt="Join forces with The Guardians of Kong"
+          />
+          <Heading className="mt-4 mb-5" tag="h2" size={1}>
+            Congratulations!
+          </Heading>
+          <Text size="lg">
+            You earned <PlainBadge className="ml-3 mr-3">25</PlainBadge> $RERROs
+          </Text>
+        </MaxWidth>
+      </Overlay>
+
+      <Popup active={false} onClose={close} className="text-center">
+        <Text className="mb-8">
+          Short description on scanning items two rows tops lorem ipsum dolor
+          sit
+        </Text>
+
+        <Field
+          className="text-center mb-2"
+          name="address"
+          placeholder="Enter your address"
+          onChange={() => {}}
+          value=""
+        />
+
+        <Button fullWidth shadow color="orange-gradient">
+          Scan Item
+        </Button>
+      </Popup>
     </>
   );
 }

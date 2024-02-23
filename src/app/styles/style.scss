@@ -16,7 +16,8 @@
 @import "./components/TableCell.scss";
 @import "./components/TableRow.scss";
 @import "./components/TableHeader.scss";
-@import "./components/TinyBadge.scss";
+@import "./components/PlainBadge.scss";
+@import "./components/Field.scss";
 
 @import "./modules/Header.scss";
 @import "./modules/Hero.scss";
@@ -24,5 +25,7 @@
 @import "./modules/FAQQuestion.scss";
 @import "./modules/Footer.scss";
 @import "./modules/Tab.scss";
+@import "./modules/Overlay.scss";
+@import "./modules/Popup.scss";
 
 @import "./base/utility.scss";

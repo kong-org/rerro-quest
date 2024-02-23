@@ -4,10 +4,12 @@ import Link from "next/link";
 interface IProps {
   className?: string;
   children?: React.ReactNode;
-  color?: "black";
+  color?: "black" | "black-gradient" | "orange-gradient";
   href?: string;
   onClick?(): void;
   fullWidth?: boolean;
+  shadow?: boolean;
+  size?: "s" | "l";
 }
 
 export default function Button({
@@ -17,11 +19,14 @@ export default function Button({
   href,
   onClick,
   fullWidth,
+  size = "l",
+  shadow,
 }: IProps) {
   const cls = classNames(
     "button",
     `button--${color}`,
-    { "button--full-width": fullWidth },
+    `button--${size}`,
+    { "button--full-width": fullWidth, "button--shadow": shadow },
     className
   );
 

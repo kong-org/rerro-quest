@@ -1,0 +1,21 @@
+.plain-badge {
+  border-radius: 100px;
+  background: $black;
+  color: $white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+
+  &--small {
+    width: 44px;
+    height: 16px;
+    font-size: 12px;
+  }
+
+  &--normal {
+    font-size: 16px;
+    line-height: 35px;
+    padding: 0 20px;
+  }
+}

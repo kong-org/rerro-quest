@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/styles/style.scss";
+import "@/app/styles/style.scss";
 
 export const metadata: Metadata = {
   title: "$RERRO Quest by Kongland",

@@ -5,6 +5,7 @@ interface IProps {
   children?: React.ReactNode;
   color?: "white" | "grey" | "yellow";
   padding?: "normal" | "none";
+  onClick?(e: any): void;
 }
 
 export default function Box({
@@ -12,9 +13,11 @@ export default function Box({
   children,
   color = "white",
   padding = "normal",
+  onClick,
 }: IProps) {
   return (
     <div
+      onClick={onClick}
       className={classNames(
         "box",
         `box--${color}`,
