@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Width from "@/app/components/Width";
-import BankIcon from "@/app/svg/BankIcon";
-import XIcon from "@/app/svg/XIcon";
+import Width from "@/app/_components/Width";
+import BankIcon from "@/app/_svg/BankIcon";
+import XIcon from "@/app/_svg/XIcon";
 import classNames from "classnames";
 import Link from "next/link";
 

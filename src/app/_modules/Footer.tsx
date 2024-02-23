@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Width from "@/app/components/Width";
-import BankIcon from "@/app/svg/BankIcon";
-import XIcon from "@/app/svg/XIcon";
+import Width from "@/app/_components/Width";
+import BankIcon from "@/app/_svg/BankIcon";
+import XIcon from "@/app/_svg/XIcon";
 import classNames from "classnames";
 import Link from "next/link";
-import Text from "@/app/components/Text";
+import Text from "@/app/_components/Text";
 
 interface IProps {
   className?: string;

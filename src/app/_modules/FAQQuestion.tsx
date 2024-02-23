@@ -2,10 +2,10 @@
 
 import React, { useState } from "react";
 import classNames from "classnames";
-import CircleIcon from "@/app/components/CircleIcon";
-import Heading from "@/app/components/Heading";
-import Text from "@/app/components/Text";
-import ChevronDown from "@/app/svg/ChevronDown";
+import CircleIcon from "@/app/_components/CircleIcon";
+import Heading from "@/app/_components/Heading";
+import Text from "@/app/_components/Text";
+import ChevronDown from "@/app/_svg/ChevronDown";
 
 interface IProps {
   question?: string;

@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import React from "react";
-import Width from "../components/Width";
-import Button from "@/app/components/Button";
+import Width from "../_components/Width";
+import Button from "@/app/_components/Button";
 
 interface IProps {
   children?: React.ReactNode;

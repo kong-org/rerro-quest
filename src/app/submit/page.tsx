@@ -1,11 +1,11 @@
 "use client";
 
-import Box from "@/app/components/Box";
-import Button from "@/app/components/Button";
-import Width from "@/app/components/Width";
-import Footer from "@/app/modules/Footer";
+import Box from "@/app/_components/Box";
+import Button from "@/app/_components/Button";
+import Width from "@/app/_components/Width";
+import Footer from "@/app/_modules/Footer";
 import React from "react";
-import { GELATO_RELAY_API_KEY, RPC_URL } from "@/app/config/gelato";
+import { GELATO_RELAY_API_KEY, RPC_URL } from "@/app/_config/gelato";
 import { ethers } from "ethers";
 import {
   CallWithERC2771Request,

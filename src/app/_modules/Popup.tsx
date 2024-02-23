@@ -1,5 +1,5 @@
-import Box from "@/app/components/Box";
-import Width from "@/app/components/Width";
+import Box from "@/app/_components/Box";
+import Width from "@/app/_components/Width";
 import classNames from "classnames";
 import React from "react";
 

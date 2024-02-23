@@ -1,4 +1,4 @@
-import Width from "@/app/components/Width";
+import Width from "@/app/_components/Width";
 import classNames from "classnames";
 
 interface IProps {
