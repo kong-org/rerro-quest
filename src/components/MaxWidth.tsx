@@ -4,6 +4,7 @@ interface IProps {
   className?: string;
   children?: React.ReactNode;
   size?:
+    | "100"
     | "300"
     | "320"
     | "400"

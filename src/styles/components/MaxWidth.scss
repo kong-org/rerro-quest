@@ -1,6 +1,10 @@
 .max-width {
   margin: 0 auto;
 
+  &--100 {
+    max-width: 100px;
+  }
+
   &--300 {
     max-width: 300px;
   }

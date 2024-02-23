@@ -1,10 +1,12 @@
 import Box from "@/components/Box";
 import Button from "@/components/Button";
 import Heading from "@/components/Heading";
+import MaxWidth from "@/components/MaxWidth";
 import classNames from "classnames";
+import Image from "next/image";
 
 interface IProps {
-  icon: React.ReactNode;
+  iconSrc: string;
   heading: string;
   text: string;
   className?: string;
@@ -12,7 +14,7 @@ interface IProps {
 }
 
 export default function TokenBlock({
-  icon,
+  iconSrc,
   heading,
   text,
   className,
@@ -20,7 +22,16 @@ export default function TokenBlock({
 }: IProps) {
   return (
     <Box color="yellow" className={classNames("token-block", className)}>
-      {icon}
+      <MaxWidth size="100" className="mb-5">
+        <Image
+          className="image"
+          width="100"
+          height="98"
+          src={iconSrc}
+          alt={heading}
+        />
+      </MaxWidth>
+
       <Heading tag="h4" size={3}>
         {heading}
       </Heading>

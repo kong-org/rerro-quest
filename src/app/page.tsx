@@ -54,9 +54,17 @@ export default function Home() {
         <div className="space-y-1.25">
           <Box>
             <MaxWidth size="510">
-              <video autoPlay loop playsInline muted poster="/images/orbs.mp4">
-                <source src="/videos/orbs.mp4" />
-              </video>
+              <div className="video-placeholder">
+                <video
+                  autoPlay
+                  loop
+                  playsInline
+                  muted
+                  poster="/images/orbs.mp4"
+                >
+                  <source src="/videos/orbs.mp4" />
+                </video>
+              </div>
             </MaxWidth>
 
             <MaxWidth size="430">
@@ -149,19 +157,19 @@ export default function Home() {
 
             <div className="grid grid-cols-3 gap-1.25">
               <TokenBlock
-                icon={<DropIcon />}
+                iconSrc="/images/rerro-badge.png"
                 heading="$RERRO Drop Points"
                 text="Hidden in plain sight"
                 buttonText="1,000 TOKENS"
               />
               <TokenBlock
-                icon={<ArxIcon />}
+                iconSrc="/images/halo-badge.png"
                 heading="HaLo Chipped Items"
                 text="Worn around the event"
                 buttonText="2,000 TOKENS"
               />
               <TokenBlock
-                icon={<OrbIcon />}
+                iconSrc="/images/orb-badge.png"
                 heading="The Colossal $RERRO Orb"
                 text="Held by the Plunderer"
                 buttonText="3,000 TOKENS"
@@ -226,7 +234,9 @@ export default function Home() {
 
               <p>
                 Learn more at{" "}
-                <Link target="_blank" href="https://kong.land/KONG.land"></Link>
+                <Link target="_blank" href="https://kong.land/KONG.land">
+                  Kong.land
+                </Link>
                 .
               </p>
             </FAQQuestion>
