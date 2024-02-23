@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@arx-research/libhalo": "^1.2.27",
     "@gelatonetwork/relay-sdk": "^5.5.5",
     "classnames": "^2.5.1",
     "ethers": "^6.11.1",

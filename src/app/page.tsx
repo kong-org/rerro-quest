@@ -1,12 +1,9 @@
-"use client";
-
 import Badge from "@/app/_components/Badge";
 import Box from "@/app/_components/Box";
 import ByKongland from "@/app/_components/ByKongland";
 import Heading from "@/app/_components/Heading";
 import Marquee from "@/app/_components/Marquee";
 import MaxWidth from "@/app/_components/MaxWidth";
-import Tab from "@/app/_modules/Tab";
 import Text from "@/app/_components/Text";
 import Width from "@/app/_components/Width";
 import FAQQuestion from "@/app/_modules/FAQQuestion";
@@ -14,28 +11,19 @@ import Footer from "@/app/_modules/Footer";
 import Header from "@/app/_modules/Header";
 import Hero from "@/app/_modules/Hero";
 import TokenBlock from "@/app/_modules/TokenBlock";
-import ArxIcon from "@/app/_svg/ArxIcon";
 import AzukiIcon from "@/app/_svg/AzukiIcon";
 import CabinIcon from "@/app/_svg/CabinIcon";
 import CoolcatsIcon from "@/app/_svg/CoolcatsIcon";
-import DropIcon from "@/app/_svg/DropIcon";
 import FaceIcon from "@/app/_svg/FaceIcon";
 import GlassesIcon from "@/app/_svg/GlassesIcon";
 import KrauseIcon from "@/app/_svg/KrauseIcon";
 import MetaIcon from "@/app/_svg/MetaIcon";
-import OrbIcon from "@/app/_svg/OrbIcon";
 import PoolsuiteIcon from "@/app/_svg/PoolsuiteIcon";
 import Image from "next/image";
 import Link from "next/link";
-import { Overlay } from "@/app/_modules/Overlay";
-import PlainBadge from "@/app/_components/PlainBadge";
-import Popup from "@/app/_modules/Popup";
-import Button from "@/app/_components/Button";
-import Field from "@/app/_components/Field";
+import Scan from "./Scan";
 
 export default function Home() {
-  const close = () => {};
-
   return (
     <>
       <Header />
@@ -271,44 +259,7 @@ export default function Home() {
 
       <Footer />
 
-      <Tab href="/">Start scanning</Tab>
-
-      <Overlay active={false} onClose={close}>
-        <MaxWidth size="350" className="text-center">
-          <Image
-            className="image"
-            width="350"
-            height="200"
-            src="/images/congrats.png"
-            alt="Join forces with The Guardians of Kong"
-          />
-          <Heading className="mt-4 mb-5" tag="h2" size={1}>
-            Congratulations!
-          </Heading>
-          <Text size="lg">
-            You earned <PlainBadge className="ml-3 mr-3">25</PlainBadge> $RERROs
-          </Text>
-        </MaxWidth>
-      </Overlay>
-
-      <Popup active={false} onClose={close} className="text-center">
-        <Text className="mb-8">
-          Short description on scanning items two rows tops lorem ipsum dolor
-          sit
-        </Text>
-
-        <Field
-          className="text-center mb-2"
-          name="address"
-          placeholder="Enter your address"
-          onChange={() => {}}
-          value=""
-        />
-
-        <Button fullWidth shadow color="orange-gradient">
-          Scan Item
-        </Button>
-      </Popup>
+      <Scan />
     </>
   );
 }

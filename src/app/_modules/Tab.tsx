@@ -1,21 +1,17 @@
-"use client";
-
 import TabIcon from "@/app/_svg/TabIcon";
 import classNames from "classnames";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
 interface IProps {
   className?: string;
   children?: React.ReactNode;
-  href: string;
+  onClick?(): void;
 }
 
-export default function Tab({ className, children, href }: IProps) {
+export default function Tab({ className, children, onClick }: IProps) {
   return (
-    <Link className={classNames("tab", className)} href={href}>
+    <button className={classNames("tab", className)} onClick={onClick}>
       <TabIcon />
       <span className="tab__text">{children}</span>
-    </Link>
+    </button>
   );
 }
