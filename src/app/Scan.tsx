@@ -14,11 +14,8 @@ import Field from "./_components/Field";
 import Button from "./_components/Button";
 import { useState } from "react";
 import buildEIP712TypedData from "./_helpers/buildEIP712TypedData";
-import { ethers, hexlify, randomBytes } from "ethers";
+import { ethers } from "ethers";
 import abi from "@/app/_config/abi.json";
-import { InterfaceAbi } from "ethers";
-import { JsonRpcApiProvider } from "ethers";
-import { JsonRpcProvider } from "ethers";
 
 export default function Scan() {
   const [address, setAddress] = useState("");
@@ -26,8 +23,9 @@ export default function Scan() {
   const [successActive, setSuccessActive] = useState(false);
 
   const handleScan = async () => {
-    // Need this
-    let provider = new JsonRpcProvider(process.env.NEXT_PUBLIC_INFURA_URI!);
+    const provider = new ethers.providers.JsonRpcProvider(
+      process.env.NEXT_PUBLIC_INFURA_URI!
+    );
 
     const rerroToken = new ethers.Contract(
       process.env.NEXT_PUBLIC_RERRO_ADDRESS!,
@@ -35,14 +33,12 @@ export default function Scan() {
       provider
     );
 
-    const deadline = Math.floor(Date.now() / 1000) + 60 * 1440;
-
-    const transaction = {
+    const transaction: any = {
       to: rerroToken.address,
       value: 0,
-      gas: hexlify("1000000"),
-      deadline: hexlify(deadline.toString()),
-      salt: hexlify(randomBytes(32)),
+      gas: ethers.utils.hexlify(1000000), // gas limit
+      deadline: ethers.utils.hexlify(Math.floor(Date.now() / 1000) + 60 * 1440), // 1 day
+      salt: ethers.utils.hexlify(ethers.utils.randomBytes(32)),
       data: rerroToken.interface.encodeFunctionData("mint", [address]),
       chainId: process.env.NEXT_PUBLIC_CHAIN_ID!,
     };
@@ -53,17 +49,48 @@ export default function Scan() {
       transaction
     );
 
-    const res = await execHaloCmdWeb({
-      name: "sign",
-      typedData: {
-        domain: typedData.domain,
-        types: typedData.types,
-        value: typedData.value,
-      },
-      keyNo: 1,
-    });
+    try {
+      // Get sign data
+      const chipSig = await execHaloCmdWeb({
+        name: "sign",
+        typedData: {
+          domain: typedData.domain,
+          types: typedData.types,
+          value: typedData.value,
+        },
+        keyNo: 1,
+      });
 
-    console.log(res);
+      // Send it!
+      try {
+        const response = await fetch(
+          process.env.NEXT_PUBLIC_ACTION_WEBHOOK_URL!,
+          {
+            method: "POST",
+            body: JSON.stringify({
+              request: {
+                ...transaction,
+                from: chipSig.etherAddress,
+              },
+              signature: {
+                r: "0x" + chipSig.signature.raw.r,
+                s: "0x" + chipSig.signature.raw.s,
+                v: chipSig.signature.raw.v,
+              },
+            }),
+            headers: { "Content-Type": "application/json" },
+          }
+        );
+
+        // Assuming the server responds with JSON
+        const responseData = await response.json();
+        console.log("Transaction posted successfully:", responseData);
+      } catch (error) {
+        console.error("Failed to post transaction:", error);
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
@@ -88,7 +115,13 @@ export default function Scan() {
           value={address}
         />
 
-        <Button fullWidth shadow color="orange-gradient" onClick={handleScan}>
+        <Button
+          disabled={!ethers.utils.isAddress(address)}
+          fullWidth
+          shadow
+          color="orange-gradient"
+          onClick={handleScan}
+        >
           Scan Item
         </Button>
       </Popup>

@@ -10,6 +10,7 @@ interface IProps {
   fullWidth?: boolean;
   shadow?: boolean;
   size?: "s" | "l";
+  disabled?: boolean;
 }
 
 export default function Button({
@@ -20,6 +21,7 @@ export default function Button({
   onClick,
   fullWidth,
   size = "l",
+  disabled,
   shadow,
 }: IProps) {
   const cls = classNames(
@@ -40,7 +42,12 @@ export default function Button({
 
   if (onClick) {
     return (
-      <button type="button" onClick={onClick} className={cls}>
+      <button
+        disabled={disabled}
+        type="button"
+        onClick={onClick}
+        className={cls}
+      >
         {children}
       </button>
     );
