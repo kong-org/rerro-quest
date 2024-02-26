@@ -11,9 +11,10 @@ import Button from "../_components/Button";
 interface IProps {
   className?: string;
   showBack?: boolean;
+  onStart?(): void;
 }
 
-export default function Header({ className, showBack }: IProps) {
+export default function Header({ className, showBack, onStart }: IProps) {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -73,7 +74,12 @@ export default function Header({ className, showBack }: IProps) {
             </li>
             {!showBack && (
               <li>
-                <Button rounded size="s" color="orange-gradient">
+                <Button
+                  onClick={onStart}
+                  rounded
+                  size="s"
+                  color="orange-gradient"
+                >
                   Start scanning
                 </Button>
               </li>

@@ -1,3 +1,5 @@
+"use client";
+
 import Badge from "@/app/_components/Badge";
 import Box from "@/app/_components/Box";
 import ByKongland from "@/app/_components/ByKongland";
@@ -12,21 +14,16 @@ import Header from "@/app/_modules/Header";
 import Hero from "@/app/_modules/Hero";
 import TokenBlock from "@/app/_modules/TokenBlock";
 import AzukiIcon from "@/app/_svg/AzukiIcon";
-import CabinIcon from "@/app/_svg/CabinIcon";
 import CoolcatsIcon from "@/app/_svg/CoolcatsIcon";
-import FaceIcon from "@/app/_svg/FaceIcon";
-import GlassesIcon from "@/app/_svg/GlassesIcon";
 import KrauseIcon from "@/app/_svg/KrauseIcon";
 import MetaIcon from "@/app/_svg/MetaIcon";
-import PoolsuiteIcon from "@/app/_svg/PoolsuiteIcon";
 import Image from "next/image";
 import Link from "next/link";
 import Scan from "./Scan";
-import classNames from "classnames";
 import JubmojiIcon from "./_svg/JubmojiIcon";
 import OcrIcon from "./_svg/OcrIcon";
-import KonglandFlagIcon from "./_svg/KonglandFlagIcon";
 import KonglandIcon from "./_svg/KonglandIcon";
+import { useState } from "react";
 
 const prizes = [
   {
@@ -102,9 +99,11 @@ const prizes = [
 ];
 
 export default function Home() {
+  const [scanActive, setScanActive] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header onStart={() => setScanActive(true)} />
 
       <Hero>
         <MaxWidth size="700">
@@ -306,7 +305,7 @@ export default function Home() {
             <Marquee color="dark" speed={50} className="marquee--prizes mt-12">
               {prizes.map((prize, i) => {
                 return (
-                  <div className={`prize prize-${i + 1}`}>
+                  <div className={`prize prize-${i + 1}`} key={i}>
                     <Image
                       key={i}
                       width={prize.width}
@@ -393,7 +392,7 @@ export default function Home() {
 
       <Footer />
 
-      <Scan />
+      <Scan scanActive={scanActive} setScanActive={setScanActive} />
     </>
   );
 }

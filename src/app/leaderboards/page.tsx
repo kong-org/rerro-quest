@@ -15,6 +15,8 @@ import Hero from "@/app/_modules/Hero";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import identifyTopMinters from "../_helpers/leaderboard";
+import { providerMain } from "@/lib/provider";
+import { ethers } from "ethers";
 
 export default function page() {
   const [scores, setScores] = useState<any>(undefined);
@@ -26,6 +28,16 @@ export default function page() {
       })
       .catch((err) => console.error(err));
   }, []);
+
+  useEffect(() => {
+    if (scores) {
+      const scoresWithEth = scores.map((score: any) => {
+        providerMain.lookupAddress(score.player).then((res) => {
+          console.log(res);
+        });
+      });
+    }
+  }, [scores]);
 
   return (
     <>

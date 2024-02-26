@@ -12,19 +12,26 @@ import PlainBadge from "./_components/PlainBadge";
 import Popup from "./_modules/Popup";
 import Field from "./_components/Field";
 import Button from "./_components/Button";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import buildEIP712TypedData from "./_helpers/buildEIP712TypedData";
 import { ethers } from "ethers";
 import getSignatureForAddress from "./_helpers/getSignatureForAddress";
 import contract from "@/lib/contract";
+import isValidEthDomain from "./_helpers/validateEthDomain";
+import provider, { providerMain } from "@/lib/provider";
 
-export default function Scan() {
+interface IProps {
+  scanActive: boolean;
+  setScanActive(scanActive: boolean): void;
+}
+
+export default function Scan({ scanActive, setScanActive }: IProps) {
   const [busy, setBusy] = useState(false);
   const [address, setAddress] = useState("");
+  const [addressInput, setAddressInput] = useState("");
   const [step, setStep] = useState(1);
   const [cert, setCert] = useState("");
   const [chipAddress, setChipAddress] = useState("");
-  const [scanActive, setScanActive] = useState(false);
   const [successActive, setSuccessActive] = useState(false);
 
   const handleScan = async () => {
@@ -181,10 +188,30 @@ export default function Scan() {
     setAddress("");
     setStep(1);
     setCert("");
-    setChipAddress("");
     setScanActive(false);
     setSuccessActive(false);
   };
+
+  useEffect(() => {
+    // Valid eth domain
+    if (isValidEthDomain(addressInput)) {
+      providerMain
+        .resolveName(addressInput)
+        .then((res) => {
+          if (res) setAddress(res);
+          else setAddress("");
+        })
+        .catch(() => {
+          setAddress("");
+        });
+    }
+    // Valid address
+    else if (ethers.utils.isAddress(addressInput)) {
+      setAddress(addressInput);
+    } else {
+      setAddress("");
+    }
+  }, [addressInput]);
 
   return (
     <>
@@ -199,12 +226,16 @@ export default function Scan() {
               className="text-center mb-2"
               name="address"
               placeholder="Enter your address"
-              onChange={(_, v) => setAddress(v)}
-              value={address}
+              onChange={(_, v) => setAddressInput(v)}
+              value={addressInput}
             />
 
             <Button
-              disabled={!ethers.utils.isAddress(address) || busy}
+              disabled={
+                (!ethers.utils.isAddress(address) &&
+                  !isValidEthDomain(address)) ||
+                busy
+              }
               fullWidth
               shadow
               color="orange-gradient"
@@ -219,9 +250,12 @@ export default function Scan() {
         {step === 2 && (
           <>
             <Text className="mb-8">We need to finalize your transactions.</Text>
-
             <Button
-              disabled={!ethers.utils.isAddress(address) || busy}
+              disabled={
+                (!ethers.utils.isAddress(address) &&
+                  !isValidEthDomain(address)) ||
+                busy
+              }
               fullWidth
               shadow
               color="orange-gradient"
