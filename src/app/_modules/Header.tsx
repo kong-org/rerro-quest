@@ -6,6 +6,7 @@ import BankIcon from "@/app/_svg/BankIcon";
 import XIcon from "@/app/_svg/XIcon";
 import classNames from "classnames";
 import Link from "next/link";
+import Button from "../_components/Button";
 
 interface IProps {
   className?: string;
@@ -70,6 +71,13 @@ export default function Header({ className, showBack }: IProps) {
                 </Link>
               )}
             </li>
+            {!showBack && (
+              <li>
+                <Button rounded size="s" color="orange-gradient">
+                  Start scanning
+                </Button>
+              </li>
+            )}
           </ul>
         </div>
       </Width>

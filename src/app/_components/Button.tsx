@@ -12,6 +12,7 @@ interface IProps {
   size?: "s" | "l";
   disabled?: boolean;
   loading?: boolean;
+  rounded?: boolean;
 }
 
 export default function Button({
@@ -25,6 +26,7 @@ export default function Button({
   disabled,
   shadow,
   loading,
+  rounded,
 }: IProps) {
   const cls = classNames(
     "button",
@@ -34,6 +36,7 @@ export default function Button({
       "button--full-width": fullWidth,
       "button--shadow": shadow,
       "button--loading": loading,
+      "button--rounded": rounded,
     },
     className
   );
