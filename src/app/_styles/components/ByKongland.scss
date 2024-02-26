@@ -7,18 +7,11 @@
     display: block;
     color: white;
     font-size: 12px;
+    font-weight: bold;
   }
 
-  &__kong {
-    background: $pinkYellowGradient;
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%;
-    letter-spacing: -0.6px;
-    text-transform: uppercase;
+  &__kongland {
+    margin: 20px auto 0;
+    color: #fff;
   }
 }

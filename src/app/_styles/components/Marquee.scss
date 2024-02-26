@@ -14,27 +14,29 @@
     color: $black;
   }
 
-  &:after,
-  &:before {
-    width: 100px;
-    height: 100%;
-    content: "";
-    top: 0;
-    content: "";
-    position: absolute;
-    z-index: 2;
+  &--fade {
+    &:after,
+    &:before {
+      width: 100px;
+      height: 100%;
+      content: "";
+      top: 0;
+      content: "";
+      position: absolute;
+      z-index: 2;
 
-    @media (min-width: $largebp) {
-      width: 150px;
+      @media (min-width: $largebp) {
+        width: 150px;
+      }
     }
-  }
 
-  &:before {
-    left: 0;
-  }
+    &:before {
+      left: 0;
+    }
 
-  &:after {
-    right: 0;
+    &:after {
+      right: 0;
+    }
   }
 
   &--light:before {
@@ -60,8 +62,95 @@
     animation: 8s infinite slideLeft linear;
   }
 
-  svg {
+  &__text {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  svg,
+  img {
+    max-width: none;
     display: inline-flex;
     vertical-align: middle;
+  }
+}
+
+.marquee.marquee--prizes {
+  &__slide {
+  }
+
+  .prize {
+    margin: 0 20px;
+  }
+
+  .prize-1 {
+    width: calc(253px * 0.5);
+
+    @media (min-width: $largebp) {
+      width: 253px;
+    }
+  }
+
+  .prize-2 {
+    width: calc(150px * 0.5);
+    @media (min-width: $largebp) {
+      width: 150px;
+    }
+  }
+
+  .prize-3 {
+    width: calc(284px * 0.5);
+    @media (min-width: $largebp) {
+      width: 284px;
+    }
+  }
+
+  .prize-4 {
+    width: calc(166px * 0.5);
+    @media (min-width: $largebp) {
+      width: 166px;
+    }
+  }
+
+  .prize-5 {
+    width: calc(365px * 0.5);
+    @media (min-width: $largebp) {
+      width: 365px;
+    }
+  }
+
+  .prize-6 {
+    width: calc(180px * 0.5);
+    @media (min-width: $largebp) {
+      width: 180px;
+    }
+  }
+
+  .prize-7 {
+    width: calc(370px * 0.5);
+    @media (min-width: $largebp) {
+      width: 370px;
+    }
+  }
+
+  .prize-8 {
+    width: calc(112px * 0.5);
+    @media (min-width: $largebp) {
+      width: 112px;
+    }
+  }
+
+  .prize-9 {
+    width: calc(220px * 0.5);
+    @media (min-width: $largebp) {
+      width: 220px;
+    }
+  }
+
+  .prize-10 {
+    width: calc(178px * 0.5);
+    @media (min-width: $largebp) {
+      width: 178px;
+    }
   }
 }

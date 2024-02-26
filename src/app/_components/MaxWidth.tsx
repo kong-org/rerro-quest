@@ -5,6 +5,7 @@ interface IProps {
   children?: React.ReactNode;
   size?:
     | "100"
+    | "180"
     | "300"
     | "320"
     | "350"

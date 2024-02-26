@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import KonglandFlagIcon from "../_svg/KonglandFlagIcon";
 
 interface IProps {
   className?: string;
@@ -9,7 +10,7 @@ export default function ByKongland({ className }: IProps) {
   return (
     <h2 className={classNames("by-kongland", className)}>
       <small className="by-kongland__by">By</small>
-      <span className="by-kongland__kong">Kong.land</span>
+      <KonglandFlagIcon className="by-kongland__kongland" />
     </h2>
   );
 }

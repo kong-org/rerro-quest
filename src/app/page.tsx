@@ -22,6 +22,84 @@ import PoolsuiteIcon from "@/app/_svg/PoolsuiteIcon";
 import Image from "next/image";
 import Link from "next/link";
 import Scan from "./Scan";
+import classNames from "classnames";
+import JubmojiIcon from "./_svg/JubmojiIcon";
+import OcrIcon from "./_svg/OcrIcon";
+import KonglandFlagIcon from "./_svg/KonglandFlagIcon";
+import KonglandIcon from "./_svg/KonglandIcon";
+
+const prizes = [
+  {
+    url: "/images/prize-1.png",
+    alt: "prize!",
+    width: 253,
+    height: 300,
+    maxWidth: 253,
+  },
+  {
+    url: "/images/prize-2.png",
+    alt: "prize!",
+    width: 175,
+    height: 150,
+    maxWidth: 150,
+  },
+  {
+    url: "/images/prize-3.png",
+    alt: "prize!",
+    width: 284,
+    height: 300,
+    maxWidth: 284,
+  },
+  {
+    url: "/images/prize-4.png",
+    alt: "prize!",
+    width: 166,
+    height: 150,
+    maxWidth: 166,
+  },
+  {
+    url: "/images/prize-5.png",
+    alt: "prize!",
+    width: 365,
+    height: 300,
+    maxWidth: 365,
+  },
+  {
+    url: "/images/prize-6.png",
+    alt: "prize!",
+    width: 180,
+    height: 150,
+    maxWidth: 180,
+  },
+  {
+    url: "/images/prize-7.png",
+    alt: "prize!",
+    width: 370,
+    height: 300,
+    maxWidth: 370,
+  },
+  {
+    url: "/images/prize-8.png",
+    alt: "prize!",
+    width: 112,
+    height: 150,
+    maxWidth: 112,
+  },
+  {
+    url: "/images/prize-9.png",
+    alt: "prize!",
+    width: 220,
+    height: 300,
+    maxWidth: 220,
+  },
+  {
+    url: "/images/prize-10.png",
+    alt: "prize!",
+    width: 178,
+    height: 300,
+    maxWidth: 178,
+  },
+];
 
 export default function Home() {
   return (
@@ -44,73 +122,90 @@ export default function Home() {
       </Hero>
 
       <Width>
-        <Marquee speed={5} className="pt-6 pb-6" repeats={8} color="light">
+        <Marquee
+          fade
+          speed={5}
+          className="pt-6 pb-6"
+          repeats={8}
+          color="light"
+          isText
+        >
           24th February @ethdenver
         </Marquee>
 
         <div className="space-y-1.25">
-          <Box>
-            <MaxWidth size="510">
-              <div className="video-placeholder">
-                <video
-                  autoPlay
-                  loop
-                  playsInline
-                  muted
-                  poster="/images/orbs.mp4"
-                >
-                  <source src="/videos/orbs.mp4" />
-                </video>
-              </div>
-            </MaxWidth>
+          <Box padding="none" className="pt-6 pb-6">
+            <div className="pl-6 pr-6">
+              <MaxWidth size="510">
+                <div className="video-placeholder">
+                  <video
+                    autoPlay
+                    loop
+                    playsInline
+                    muted
+                    poster="/images/orbs.mp4"
+                  >
+                    <source src="/videos/orbs.mp4" />
+                  </video>
+                </div>
+              </MaxWidth>
 
-            <MaxWidth size="430">
-              <h2>
-                <Image
-                  className="image"
-                  width="430"
-                  height="100"
-                  src="/images/guardians.png"
-                  alt="Join forces with The Guardians of Kong"
-                />
-              </h2>
-            </MaxWidth>
+              <MaxWidth size="430">
+                <h2>
+                  <Image
+                    className="image"
+                    width="430"
+                    height="100"
+                    src="/images/guardians.png"
+                    alt="Join forces with The Guardians of Kong"
+                  />
+                </h2>
+              </MaxWidth>
 
-            <MaxWidth size="640" className="mt-12">
-              <Text className="text-center">
-                <p>
-                  Embark on the <strong>$RERRO QUEST</strong> for your chance to
-                  win prizes and glory! Your journey starts in KONG Land, a
-                  cryptostate where the fabric of reality weaves through the
-                  known and the unimaginable.
-                </p>
+              <MaxWidth size="640" className="mt-12">
+                <Text className="text-center">
+                  <p>
+                    Embark on the <strong>$RERRO QUEST</strong> for your chance
+                    to win prizes and glory! Your journey starts in KONG Land, a
+                    cryptostate where the fabric of reality weaves through the
+                    known and the unimaginable.
+                  </p>
 
-                <p>
-                  Rally alongside new adventurers under the banner of the
-                  Guardians to restore order. Your secret weapon?{" "}
-                  <strong>$RERROs</strong> - the ambrosia of KONG Land's
-                  inhabitants (IYKYK) - renowned for their 'up only' vitality.
-                </p>
-              </Text>
-            </MaxWidth>
+                  <p>
+                    Rally alongside new adventurers under the banner of the
+                    Guardians to restore order. Your secret weapon?{" "}
+                    <strong>$RERROs</strong> - the ambrosia of KONG Land's
+                    inhabitants (IYKYK) - renowned for their 'up only' vitality.
+                  </p>
+                </Text>
+              </MaxWidth>
 
-            <Heading
-              className="text-center uppercase mt-12 mb-8"
-              tag="h3"
-              size={6}
-            >
-              Scan products by these companies
-            </Heading>
+              <Heading
+                className="text-center uppercase mt-12 mb-8"
+                tag="h3"
+                size={6}
+              >
+                Scan products by these companies
+              </Heading>
+            </div>
 
-            <Marquee color="dark" className="mb-8" speed={10} slideWidth={917}>
-              <GlassesIcon className="ml-5 mr-5" />
-              <PoolsuiteIcon className="ml-5 mr-5" />
-              <KrauseIcon className="ml-5 mr-5" />
+            <Marquee color="dark" className="mb-8" speed={20}>
               <AzukiIcon className="ml-5 mr-5" />
-              <CabinIcon className="ml-5 mr-5" />
-              <FaceIcon className="ml-5 mr-5" />
+              <JubmojiIcon className="ml-5 mr-5" />
               <CoolcatsIcon className="ml-5 mr-5" />
               <MetaIcon className="ml-5 mr-5" />
+              <OcrIcon className="ml-5 mr-5" />
+              <KonglandIcon className="ml-5 mr-5" />
+              <KrauseIcon className="ml-5 mr-5" />
+              <div className="ml-5 mr-5" style={{ width: 73 }}>
+                <Image
+                  width="146"
+                  height="120"
+                  className="image"
+                  src="/images/house.png"
+                  alt="House of Guccheetah"
+                />
+              </div>
             </Marquee>
           </Box>
 
@@ -195,6 +290,45 @@ export default function Home() {
                 </p>
               </Text>
             </MaxWidth>
+          </Box>
+
+          <Box padding="none" className="pt-6 pb-6">
+            <MaxWidth size="180" className="mt-8">
+              <Image
+                className="image"
+                width="366"
+                height="120"
+                src="/images/receive-prizes.png"
+                alt="Start your quest"
+              />
+            </MaxWidth>
+
+            <Marquee color="dark" speed={50} className="marquee--prizes mt-12">
+              {prizes.map((prize, i) => {
+                return (
+                  <div className={`prize prize-${i + 1}`}>
+                    <Image
+                      key={i}
+                      width={prize.width}
+                      height={prize.height}
+                      className="image"
+                      src={`/images/prize-${i + 1}.png`}
+                      alt={prize.alt}
+                    />
+                  </div>
+                );
+              })}
+            </Marquee>
+
+            <div className="pl-6 pr-6">
+              <MaxWidth size="640" className="mt-12 mb-12">
+                <Text className="text-center">
+                  Chaos has erupted: the Physi-digital Plunderer has absconded
+                  with invaluable artefacts (chipped merch), disrupting the
+                  harmony between physical and digital realms.
+                </Text>
+              </MaxWidth>
+            </div>
           </Box>
 
           <Box color="grey" className="text-white">
