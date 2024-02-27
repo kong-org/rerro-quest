@@ -170,6 +170,29 @@
         "internalType": "address[]",
         "name": "chipIds",
         "type": "address[]"
+      },
+      {
+        "internalType": "uint256[]",
+        "name": "mintAmounts",
+        "type": "uint256[]"
+      },
+      {
+        "internalType": "address[]",
+        "name": "owners",
+        "type": "address[]"
+      }
+    ],
+    "name": "bulkClaim",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "chipIds",
+        "type": "address[]"
       }
     ],
     "name": "bulkSeed",
