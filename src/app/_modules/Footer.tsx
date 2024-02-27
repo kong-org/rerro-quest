@@ -51,12 +51,16 @@ export default function Footer({
 
           {onScan && (
             <li>
-              <button onClick={onScan}>Scan Item</button>
+              <button className="uppercase" onClick={onScan}>
+                Scan Item
+              </button>
             </li>
           )}
           {onRegister && (
             <li>
-              <button onClick={onRegister}>Register Item</button>
+              <button className="uppercase" onClick={onRegister}>
+                Register Item
+              </button>
             </li>
           )}
         </ul>
