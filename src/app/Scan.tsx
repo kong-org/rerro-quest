@@ -97,6 +97,18 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       }
       // Otherwise it's single step and we can finish
       else {
+        console.log("fetch", {
+          request: {
+            ...transaction,
+            from: chipSig.etherAddress,
+          },
+          signature: {
+            r: "0x" + chipSig.signature.raw.r,
+            s: "0x" + chipSig.signature.raw.s,
+            v: chipSig.signature.raw.v,
+          },
+        });
+
         try {
           const response = await fetch(
             process.env.NEXT_PUBLIC_ACTION_WEBHOOK_URL!,
