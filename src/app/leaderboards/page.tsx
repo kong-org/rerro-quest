@@ -20,6 +20,7 @@ import { ethers } from "ethers";
 
 export default function page() {
   const [scores, setScores] = useState<any>(undefined);
+  const [ensDomains, setEnsDomains] = useState<any>({});
 
   useEffect(() => {
     identifyTopMinters(process.env.NEXT_PUBLIC_RERRO_ADDRESS!)
@@ -30,11 +31,19 @@ export default function page() {
   }, []);
 
   useEffect(() => {
-    if (scores) {
-      const scoresWithEth = scores.map((score: any) => {
-        providerMain.lookupAddress(score.player).then((res) => {
-          console.log(res);
+    if (scores && scores.length > 0) {
+      Promise.all(
+        scores.map((s: any) => providerMain.lookupAddress(s.player))
+      ).then((res) => {
+        const domains: any = {}; // Initialize an empty object for the domains
+
+        res.forEach((item, i) => {
+          if (item && typeof item === "string") {
+            domains[scores[i].player] = item; // Assign the domain to the player's address as key
+          }
         });
+
+        setEnsDomains(domains);
       });
     }
   }, [scores]);
@@ -105,15 +114,21 @@ export default function page() {
             {scores.map((score: any, i: number) => {
               return (
                 <div className="pt-1 pb-1 pr-3 pl-3" key={i}>
-                  <TableRow highlighted={i === 2}>
+                  <TableRow>
                     <TableCell size="s">
                       <PlainBadge>{i + 1}</PlainBadge>
                     </TableCell>
                     <TableCell size="m">
                       <Text size="xs" className="uppercase">
-                        {score.player.length > 10
-                          ? score.player.slice(0, 8) + "..."
-                          : score.player}
+                        {ensDomains[score.player] ? (
+                          <>{ensDomains[score.player]}</>
+                        ) : (
+                          <>
+                            {score.player.length > 10
+                              ? score.player.slice(0, 8) + "..."
+                              : score.player}
+                          </>
+                        )}
                       </Text>
                     </TableCell>
                     <TableCell size="m" className="text-right">
