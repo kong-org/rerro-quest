@@ -119,6 +119,8 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           // Assuming the server responds with JSON
           const responseData = await response.json();
 
+          console.log({ responseData });
+
           setSuccessActive(true);
           setError("");
         } catch (error) {
