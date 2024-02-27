@@ -115,11 +115,11 @@ export default function Leaderboard() {
         <MaxWidth size="400">
           <h1>
             <Image
+              className="image"
               width="730"
               height="220"
               src="/images/logo.png"
               alt="Leaderboards"
-              layout="responsive"
             />
           </h1>
         </MaxWidth>

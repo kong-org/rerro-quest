@@ -30,7 +30,10 @@ export default function Footer({
         <Text weight="medium" size="s">
           Made in
         </Text>
-        <KonglandFlagIcon />
+
+        <Link href="https://kong.land">
+          <KonglandFlagIcon />
+        </Link>
 
         <ul className="footer__nav">
           {back && (
