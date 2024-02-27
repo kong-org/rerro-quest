@@ -178,8 +178,12 @@ export default function Leaderboard() {
               {balance && (
                 <div className="text-center">
                   <Heading className="special-text" tag="h2" size={2}>
-                    <strong>{address.slice(0, 8)}</strong> has a balance of{" "}
-                    <strong>{balance}&nbsp;$RERROs</strong>
+                    <strong>
+                      {ethers.utils.isAddress(address)
+                        ? address.slice(0, 8)
+                        : address}
+                    </strong>{" "}
+                    has a balance of <strong>{balance}&nbsp;$RERROs</strong>
                   </Heading>
                   <Button
                     onClick={handleAnother}
