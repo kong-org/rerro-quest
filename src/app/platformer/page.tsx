@@ -7,7 +7,7 @@ import Box from "../_components/Box";
 export default function page() {
   return (
     <>
-      <Header className="large" />
+      <Header className="large" showBack />
       <Width className="large-width">
         <Box>
           <div className="game-holder">
