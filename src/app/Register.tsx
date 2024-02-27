@@ -123,6 +123,7 @@ export default function Register({
           const responseData = await response.json();
 
           setSuccessActive(true);
+          setStep(1);
           setError("");
         } catch (error) {
           console.error("Failed to post transaction:", error);
