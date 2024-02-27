@@ -79,8 +79,6 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       const ownerId = await contract.chipIdOwner(chipAddress);
       const used = isUsed(ownerId);
 
-      console.log({ ownerId, used, chipAddress, cert, transaction, typedData });
-
       if (used) {
         setError("This chip has already been scanned.");
         setBusy(false);
@@ -97,18 +95,6 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       }
       // Otherwise it's single step and we can finish
       else {
-        console.log("fetch", {
-          request: {
-            ...transaction,
-            from: chipSig.etherAddress,
-          },
-          signature: {
-            r: "0x" + chipSig.signature.raw.r,
-            s: "0x" + chipSig.signature.raw.s,
-            v: chipSig.signature.raw.v,
-          },
-        });
-
         try {
           const response = await fetch(
             process.env.NEXT_PUBLIC_ACTION_WEBHOOK_URL!,
@@ -130,9 +116,6 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           );
           // Assuming the server responds with JSON
           const responseData = await response.json();
-
-          console.log({ responseData });
-
           setSuccessActive(true);
           setError("");
         } catch (error) {
