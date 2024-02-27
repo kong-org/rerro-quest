@@ -82,6 +82,8 @@ export default function Register({
       const ownerId = await contract.chipIdOwner(chipAddress);
       const used = isUsed(ownerId);
 
+      console.log({ ownerId, used });
+
       if (used) {
         setError("This chip has already been registered.");
         setBusy(false);
