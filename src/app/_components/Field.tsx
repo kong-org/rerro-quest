@@ -35,7 +35,7 @@ export default function Field({
         name={name}
         value={value}
         onChange={handleChange}
-        autoCapitalize="off"
+        autoCapitalize="none"
       />
     </div>
   );

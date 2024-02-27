@@ -24,6 +24,7 @@ import JubmojiIcon from "./_svg/JubmojiIcon";
 import OcrIcon from "./_svg/OcrIcon";
 import KonglandIcon from "./_svg/KonglandIcon";
 import { useState } from "react";
+import Register from "./Register";
 
 const prizes = [
   {
@@ -100,10 +101,11 @@ const prizes = [
 
 export default function Home() {
   const [scanActive, setScanActive] = useState(false);
+  const [registerActive, setRegisterActive] = useState(false);
 
   return (
     <>
-      <Header onStart={() => setScanActive(true)} />
+      <Header onStart={() => setRegisterActive(true)} />
 
       <Hero>
         <MaxWidth size="700">
@@ -390,9 +392,16 @@ export default function Home() {
         </div>
       </Width>
 
-      <Footer />
+      <Footer
+        onScan={() => setScanActive(true)}
+        onRegister={() => setScanActive(true)}
+      />
 
       <Scan scanActive={scanActive} setScanActive={setScanActive} />
+      <Register
+        registerActive={registerActive}
+        setRegisterActive={setRegisterActive}
+      />
     </>
   );
 }

@@ -15,6 +15,10 @@
     font-size: 16px;
   }
 
+  &--medium {
+    font-weight: 500;
+  }
+
   & > * + * {
     margin-top: 25px;
   }

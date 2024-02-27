@@ -4,11 +4,24 @@ interface IProps {
   className?: string;
   children?: React.ReactNode;
   size?: "xs" | "s" | "base" | "lg";
+  weight?: "base" | "medium";
 }
 
-export default function Text({ className, children, size = "base" }: IProps) {
+export default function Text({
+  className,
+  children,
+  size = "base",
+  weight = "base",
+}: IProps) {
   return (
-    <div className={classNames("text", `text--${size}`, className)}>
+    <div
+      className={classNames(
+        "text",
+        `text--${size}`,
+        `text--${weight}`,
+        className
+      )}
+    >
       {children}
     </div>
   );

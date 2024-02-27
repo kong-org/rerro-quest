@@ -16,9 +16,8 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import identifyTopMinters from "../_helpers/leaderboard";
 import { providerMain } from "@/lib/provider";
-import { ethers } from "ethers";
 
-export default function page() {
+export default function Leaderboard() {
   const [scores, setScores] = useState<any>(undefined);
   const [ensDomains, setEnsDomains] = useState<any>({});
 
@@ -141,7 +140,7 @@ export default function page() {
           </Box>
         )}
       </Width>
-      <Footer />
+      <Footer back />
     </>
   );
 }

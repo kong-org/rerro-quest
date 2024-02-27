@@ -22,11 +22,14 @@ import provider, { providerMain } from "@/lib/provider";
 import isUsed from "./_helpers/isUsed";
 
 interface IProps {
-  scanActive: boolean;
-  setScanActive(scanActive: boolean): void;
+  registerActive: boolean;
+  setRegisterActive(scanActive: boolean): void;
 }
 
-export default function Scan({ scanActive, setScanActive }: IProps) {
+export default function Register({
+  registerActive,
+  setRegisterActive,
+}: IProps) {
   const [error, setError] = useState("");
   const [busy, setBusy] = useState(false);
   const [address, setAddress] = useState("");
@@ -45,7 +48,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       gas: ethers.utils.hexlify(1000000), // gas limit
       deadline: ethers.utils.hexlify(Math.floor(Date.now() / 1000) + 60 * 1440), // 1 day
       salt: ethers.utils.hexlify(ethers.utils.randomBytes(32)),
-      data: contract.interface.encodeFunctionData("mint", [address]),
+      data: contract.interface.encodeFunctionData("claimOwnership", [address]),
       chainId: process.env.NEXT_PUBLIC_CHAIN_ID!,
     };
 
@@ -80,7 +83,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       const used = isUsed(ownerId);
 
       if (used) {
-        setError("This chip has already been scanned.");
+        setError("This chip has already been registered.");
         setBusy(false);
         return;
       }
@@ -120,8 +123,8 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           setSuccessActive(true);
           setError("");
         } catch (error) {
-          setError("Something went wrong.");
           console.error("Failed to post transaction:", error);
+          setError("Something went wrong.");
         }
       }
     } catch (err) {
@@ -143,10 +146,10 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       gas: ethers.utils.hexlify(1000000), // gas limit
       deadline: ethers.utils.hexlify(Math.floor(Date.now() / 1000) + 60 * 1440), // 1 day
       salt: ethers.utils.hexlify(ethers.utils.randomBytes(32)),
-      data: contract.interface.encodeFunctionData("mintWithSignature", [
-        address,
-        cert,
-      ]),
+      data: contract.interface.encodeFunctionData(
+        "claimOwnershipWithSignature",
+        [address, cert]
+      ),
       chainId: process.env.NEXT_PUBLIC_CHAIN_ID!,
     };
 
@@ -203,7 +206,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
     setBusy(false);
     setStep(1);
     setCert("");
-    setScanActive(false);
+    setRegisterActive(false);
     setSuccessActive(false);
   };
 
@@ -242,12 +245,17 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
 
   return (
     <>
-      <Tab onClick={() => setScanActive(true)}>Start scanning</Tab>
-
-      <Popup active={scanActive} onClose={handleClose} className="text-center">
+      <Popup
+        active={registerActive}
+        onClose={handleClose}
+        className="text-center"
+      >
         {step === 1 && (
           <>
-            <Text className="mb-8">Blah blah blah scan your chip</Text>
+            <Text className="mb-8">
+              Register your item before the event to get rewards when this item
+              gets scanned.
+            </Text>
 
             <Field
               className="text-center mb-2"
@@ -269,7 +277,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
               onClick={handleScan}
               loading={busy}
             >
-              Scan Item
+              Register Item
             </Button>
 
             {error && (
@@ -280,7 +288,10 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
 
         {step === 2 && (
           <>
-            <Text className="mb-8">Blah blah blah scan your chip.</Text>
+            <Text className="mb-8">
+              Register your item before the event to get rewards when this item
+              gets scanned.
+            </Text>
             <Button
               disabled={
                 (!ethers.utils.isAddress(address) &&
@@ -305,18 +316,11 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
 
       <Overlay active={successActive} onClose={handleClose}>
         <MaxWidth size="350" className="text-center">
-          <Image
-            className="image"
-            width="350"
-            height="200"
-            src="/images/congrats.png"
-            alt="Join forces with The Guardians of Kong"
-          />
           <Heading className="mt-4 mb-5" tag="h2" size={1}>
-            Congratulations!
+            Yay!
           </Heading>
 
-          <Text size="lg">You earned $RERROs!</Text>
+          <Text size="lg">Your item has been registered.</Text>
         </MaxWidth>
       </Overlay>
     </>
