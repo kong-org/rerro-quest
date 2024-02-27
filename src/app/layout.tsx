@@ -3,7 +3,12 @@ import "@/app/_styles/style.scss";
 
 export const metadata: Metadata = {
   title: "$RERRO Quest by Kongland",
-  description: "Win prizes!",
+  description:
+    "Embark on the $RERRO QUEST for your chance to win prizes and glory!",
+  metadataBase: new URL("https://rerro-quest.vercel.app"),
+  openGraph: {
+    images: ["/images/og-image.png"],
+  },
 };
 
 export default function RootLayout({
@@ -13,6 +18,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <link rel="icon" type="image/svg+xml" href="/images/favicon.svg"></link>
+
       <body>{children}</body>
     </html>
   );
