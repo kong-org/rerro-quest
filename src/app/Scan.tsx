@@ -76,12 +76,10 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       setCert(cert);
 
       // Already used
-      const ownerId = await contract.chipIdOwner(chipAddress);
-      const used = isUsed(ownerId);
+      const scannedRaw = localStorage.getItem("scanned") || "{}";
+      const scanned = JSON.parse(scannedRaw);
 
-      console.log({ ownerId, used });
-
-      if (used) {
+      if (scanned[chipAddress]) {
         setError("This chip has already been scanned.");
         setBusy(false);
         return;
@@ -118,6 +116,11 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           );
           // Assuming the server responds with JSON
           const responseData = await response.json();
+
+          // Save in storage
+          scanned[chipAddress] = true;
+          localStorage.setItem("scanned", JSON.stringify(scanned));
+
           setSuccessActive(true);
           setError("");
         } catch (error) {
@@ -191,6 +194,12 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       );
       // Assuming the server responds with JSON
       const responseData = await response.json();
+
+      // Save in storage
+      const scannedRaw = localStorage.getItem("scanned") || "{}";
+      const scanned = JSON.parse(scannedRaw);
+      scanned[chipAddress] = true;
+      localStorage.setItem("scanned", JSON.stringify(scanned));
 
       setSuccessActive(true);
     } catch (error) {
