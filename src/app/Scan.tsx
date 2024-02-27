@@ -201,7 +201,8 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           if (res) setAddress(res);
           else setAddress("");
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log(err);
           setAddress("");
         });
     }
