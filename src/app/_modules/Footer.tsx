@@ -51,12 +51,12 @@ export default function Footer({
 
           {onScan && (
             <li>
-              <button>Scan Item</button>
+              <button onClick={onScan}>Scan Item</button>
             </li>
           )}
           {onRegister && (
             <li>
-              <button>Register Item</button>
+              <button onClick={onRegister}>Register Item</button>
             </li>
           )}
         </ul>
