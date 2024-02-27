@@ -39,6 +39,10 @@ export default function Footer({
             </li>
           )}
           <li>
+            <Link href="/platformer">Platformer</Link>
+          </li>
+
+          <li>
             <Link href="/leaderboard">Leaderboard</Link>
           </li>
 

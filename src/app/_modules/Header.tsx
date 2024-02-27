@@ -61,6 +61,12 @@ export default function Header({ className, showBack, onStart }: IProps) {
             </li>
           </ul>
           <ul className="header-nav">
+            <li className="desktop-only">
+              <Link className="header-nav__anchor" href="/platformer">
+                Platformer
+              </Link>
+            </li>
+
             <li className="header-nav__item">
               {!showBack ? (
                 <Link className="header-nav__anchor" href="/leaderboard">

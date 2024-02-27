@@ -152,3 +152,25 @@
   line-height: 1.5;
   text-align: center;
 }
+
+.large-width {
+  max-width: 1008px;
+  margin-top: 80px;
+}
+
+.game-holder {
+  iframe {
+  }
+}
+
+.header.large .width {
+  max-width: 1008px;
+}
+
+.desktop-only {
+  display: none;
+
+  @media (min-width: $largebp) {
+    display: block;
+  }
+}

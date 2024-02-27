@@ -81,7 +81,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       const scanned = JSON.parse(scannedRaw);
 
       if (scanned[chipAddress]) {
-        setError("This address has already scanned this chip.");
+        setError("You've already scanned this chip.");
         setBusy(false);
         return;
       }
