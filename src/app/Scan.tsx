@@ -185,7 +185,6 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
 
   const handleClose = () => {
     setBusy(false);
-    setAddress("");
     setStep(1);
     setCert("");
     setScanActive(false);
