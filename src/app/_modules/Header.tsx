@@ -80,7 +80,7 @@ export default function Header({ className, showBack, onStart }: IProps) {
                   size="s"
                   color="orange-gradient"
                 >
-                  Start scanning
+                  Register Item
                 </Button>
               </li>
             )}

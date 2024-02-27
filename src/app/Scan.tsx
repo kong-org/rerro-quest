@@ -215,7 +215,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
 
   return (
     <>
-      <Tab onClick={() => setScanActive(true)}>Start scanning</Tab>
+      <Tab onClick={() => setScanActive(true)}>Register Item</Tab>
 
       <Popup active={scanActive} onClose={handleClose} className="text-center">
         {step === 1 && (
