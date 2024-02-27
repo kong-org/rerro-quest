@@ -35,7 +35,7 @@ export default function Footer({
           <KonglandFlagIcon />
         </Link>
 
-        <ul className="footer__nav">
+        <ul className="footer__nav uppercase">
           {back && (
             <li>
               <Link href="/">Home</Link>
