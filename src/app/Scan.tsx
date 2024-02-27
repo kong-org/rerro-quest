@@ -20,6 +20,7 @@ import contract from "@/lib/contract";
 import isValidEthDomain from "./_helpers/validateEthDomain";
 import provider, { providerMain } from "@/lib/provider";
 import isUsed from "./_helpers/isUsed";
+import Link from "next/link";
 
 interface IProps {
   scanActive: boolean;
@@ -80,7 +81,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       const scanned = JSON.parse(scannedRaw);
 
       if (scanned[chipAddress]) {
-        setError("This chip has already been scanned.");
+        setError("This address has already scanned this chip.");
         setBusy(false);
         return;
       }
@@ -229,7 +230,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
             setError("");
             setAddress(res);
           } else {
-            setError("Invalid ens domain.");
+            setError("Failed to look up ENS name.");
             setAddress("");
           }
 
@@ -257,7 +258,9 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       <Popup active={scanActive} onClose={handleClose} className="text-center">
         {step === 1 && (
           <>
-            <Text className="mb-8">Blah blah blah scan your chip</Text>
+            <Text className="mb-8">
+              Enter the address where you want to claim $RERROs
+            </Text>
 
             <Field
               className="text-center mb-2"
@@ -290,7 +293,9 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
 
         {step === 2 && (
           <>
-            <Text className="mb-8">Blah blah blah scan your chip.</Text>
+            <Text className="mb-8">
+              You're the first scanner of this chip! Scan again to finalize.
+            </Text>
             <Button
               disabled={
                 (!ethers.utils.isAddress(address) &&
@@ -327,6 +332,15 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           </Heading>
 
           <Text size="lg">You earned $RERROs!</Text>
+
+          <Button
+            className="mt-5"
+            color="line-black"
+            size="s"
+            href="/leaderboard"
+          >
+            View leaderboard
+          </Button>
         </MaxWidth>
       </Overlay>
     </>

@@ -74,12 +74,7 @@ export default function Header({ className, showBack, onStart }: IProps) {
             </li>
             {!showBack && (
               <li>
-                <Button
-                  onClick={onStart}
-                  rounded
-                  size="s"
-                  color="orange-gradient"
-                >
+                <Button onClick={onStart} size="s" color="orange-gradient">
                   Register Item
                 </Button>
               </li>

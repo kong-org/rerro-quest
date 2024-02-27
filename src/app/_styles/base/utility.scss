@@ -131,3 +131,24 @@
 .text-sm {
   font-size: 14px;
 }
+
+.inline-block {
+  display: inline-block;
+}
+
+.text-black {
+  color: $black;
+}
+
+.leaderboard-header {
+  &__flex {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.special-text {
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+}

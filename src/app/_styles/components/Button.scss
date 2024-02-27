@@ -65,6 +65,17 @@
     color: $white;
   }
 
+  &--line-black {
+    background: transparent;
+    border: 1px solid $black;
+    color: $black;
+
+    &:hover {
+      background: $black;
+      color: $white;
+    }
+  }
+
   &--black-gradient {
     background: linear-gradient(180deg, rgba(30, 33, 38, 0.7) 0%, #1e2126 100%),
       #fcfcfc;
@@ -74,8 +85,10 @@
   &--orange-gradient {
     line-height: 46px;
     color: $white;
-    border: 1px solid #ff6b00;
+    border-radius: 6px;
+    border: 1px solid #ff00a8;
     background: linear-gradient(180deg, #ffd70e 0%, #ff0f00 100%);
+    box-shadow: 0px 3px 0px 0px rgba(252, 252, 252, 0.5) inset;
   }
 
   // Effects

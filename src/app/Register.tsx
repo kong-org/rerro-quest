@@ -224,7 +224,7 @@ export default function Register({
             setError("");
             setAddress(res);
           } else {
-            setError("Invalid ens domain.");
+            setError("Failed to look up ENS name.");
             setAddress("");
           }
 

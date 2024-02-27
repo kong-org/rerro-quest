@@ -4,7 +4,7 @@ import Link from "next/link";
 interface IProps {
   className?: string;
   children?: React.ReactNode;
-  color?: "black" | "black-gradient" | "orange-gradient";
+  color?: "black" | "black-gradient" | "orange-gradient" | "line-black";
   href?: string;
   onClick?(): void;
   fullWidth?: boolean;
@@ -13,6 +13,7 @@ interface IProps {
   disabled?: boolean;
   loading?: boolean;
   rounded?: boolean;
+  type?: "submit" | "button";
 }
 
 export default function Button({
@@ -27,6 +28,7 @@ export default function Button({
   shadow,
   loading,
   rounded,
+  type = "button",
 }: IProps) {
   const cls = classNames(
     "button",
@@ -51,12 +53,7 @@ export default function Button({
 
   if (onClick) {
     return (
-      <button
-        disabled={disabled}
-        type="button"
-        onClick={onClick}
-        className={cls}
-      >
+      <button disabled={disabled} type={type} onClick={onClick} className={cls}>
         {children}
       </button>
     );

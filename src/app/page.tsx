@@ -131,7 +131,7 @@ export default function Home() {
           color="light"
           isText
         >
-          24th February @ethdenver
+          28th February @ethdenver
         </Marquee>
 
         <div className="space-y-1.25">
@@ -239,7 +239,7 @@ export default function Home() {
                   pilfered artifacts.
                 </p>
 
-                <Badge tag="h3">Premise</Badge>
+                <Badge tag="h3">Tokens</Badge>
 
                 <p>
                   Each claim will power you up the leaderboard. There are three
@@ -273,21 +273,22 @@ export default function Home() {
               <Text className="text-center">
                 <Badge tag="h3">How to play</Badge>
                 <p>
-                  When you find an item above, scan it from the &apos;mint
-                  zone&apos; using your phone&apos;s NFC reader which will allow
-                  you to claim the tokens for free (no gas required) using any
-                  WalletConnect-compatible wallet.
+                  Scan any HaLo by tapping "Start Scanning" below. This could a
+                  chipped hoodie from Cool Cats, an OCR record, a Jubmoji card
+                  -- really, any HaLo made after 2022 works! Enter in your
+                  address or ENS and the claim will be processed for free; no
+                  gas needed to claim and you don't need to connect your wallet.
                 </p>
 
                 <p>
-                  <strong>$RERROs</strong> are on the Optimism network, so
-                  ensure your wallet is set to Op to collect. Each item can be
-                  scanned once per day for its <strong>$RERROs</strong>.
+                  <strong>$RERROs</strong> are on the Base network. Each item
+                  can be scanned once by a given wallet for its{" "}
+                  <strong>$RERROs</strong>.
                 </p>
 
                 <p>
-                  It&apos;s time to scan your way to adventure—let the quest
-                  begin!
+                  It&apos;s time to scan your way to adventure -- let the quest
+                  begin.
                 </p>
               </Text>
             </MaxWidth>
