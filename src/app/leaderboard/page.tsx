@@ -178,7 +178,7 @@ export default function Leaderboard() {
               {balance && (
                 <div className="text-center">
                   <Heading className="special-text" tag="h2" size={2}>
-                    <strong>{address}</strong> has a balance of{" "}
+                    <strong>{address.slice(12)}</strong> has a balance of{" "}
                     <strong>{balance}&nbsp;$RERROs</strong>
                   </Heading>
                   <Button
