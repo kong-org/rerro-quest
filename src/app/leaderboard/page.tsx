@@ -68,7 +68,7 @@ export default function Leaderboard() {
       <Width padding="tight">
         {!scores && (
           <Box>
-            <Text className="text-center">Fetching the leaderboards...</Text>
+            <Text className="text-center">Fetching the leaderboard...</Text>
           </Box>
         )}
 
