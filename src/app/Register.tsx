@@ -42,6 +42,14 @@ export default function Register({
   const handleScan = async () => {
     setBusy(true);
 
+    const isPaused = await contract.claimOwnershipPaused();
+
+    if (isPaused) {
+      setError("Claiming is currently paused.");
+      setBusy(false);
+      return;
+    }
+
     const transaction: any = {
       to: contract.address,
       value: 0,

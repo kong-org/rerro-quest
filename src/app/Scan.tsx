@@ -40,6 +40,14 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
   const handleScan = async () => {
     setBusy(true);
 
+    const isPaused = await contract.mintPaused();
+
+    if (isPaused) {
+      setError("Minting is currently paused.");
+      setBusy(false);
+      return;
+    }
+
     const transaction: any = {
       to: contract.address,
       value: 0,
