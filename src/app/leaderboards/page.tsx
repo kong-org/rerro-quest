@@ -116,7 +116,7 @@ export default function page() {
                 <div className="pt-1 pb-1 pr-3 pl-3" key={i}>
                   <TableRow>
                     <TableCell size="s">
-                      <PlainBadge>{i + 1}</PlainBadge>
+                      <PlainBadge size="small">{i + 1}</PlainBadge>
                     </TableCell>
                     <TableCell size="m">
                       <Text size="xs" className="uppercase">
