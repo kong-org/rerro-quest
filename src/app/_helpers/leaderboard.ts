@@ -63,12 +63,14 @@ export default async function identifyTopMinters(
     .sort((a: any, b: any) => b[1] - a[1])
     .slice(0, 100);
 
-  return sortedMinters.map((minter) => {
-    const formatted = {
-      player: minter[0],
-      score: minter[1],
-    };
+  return sortedMinters
+    .map((minter) => {
+      const formatted = {
+        player: minter[0],
+        score: minter[1],
+      };
 
-    return formatted;
-  });
+      return formatted;
+    })
+    .filter((a) => a.player !== "0xbdC95cA05cC25342Ae9A96FB12Cbe937Efe2e28C");
 }
