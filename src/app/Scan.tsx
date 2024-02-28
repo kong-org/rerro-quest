@@ -391,7 +391,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
             src="/images/congrats.png"
             alt="Join forces with The Guardians of Kong"
           />
-          <Heading className="mt-4 mb-5" tag="h2" size={1}>
+          <Heading className="mt-4 mb-5 font-expanded" tag="h2" size={1}>
             Congratulations!
           </Heading>
 

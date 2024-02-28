@@ -2,14 +2,14 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
+  padding: 6px 12px;
+
+  .plain-badge {
+    transform: translateY(-1px);
+  }
 
   &:hover {
     background: $orange;
     border-radius: 200px;
-
-    .tiny-badge {
-      background: transparent;
-    }
   }
 }

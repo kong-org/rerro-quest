@@ -3,10 +3,10 @@
   z-index: -1;
 
   &--padding-normal {
-    padding: 120px 0 60px;
+    padding: 140px 0 50px;
 
     @media (min-width: $largebp) {
-      padding: 180px 0;
+      padding: 200px 0 150px;
     }
   }
 
@@ -14,7 +14,7 @@
     padding: 120px 0 60px;
 
     @media (min-width: $largebp) {
-      padding: 110px 0;
+      padding: 140px 0 110px;
     }
   }
 

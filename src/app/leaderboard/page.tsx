@@ -116,12 +116,18 @@ export default function Leaderboard() {
           <h1>
             <Image
               className="image"
-              width="730"
-              height="220"
-              src="/images/logo.png"
+              width="392"
+              height="60"
+              src="/images/leaderboard.png"
               alt="Leaderboards"
             />
           </h1>
+          <Text className="text-white text-center mt-8">
+            <p>
+              Winners be calculated based on the most scanned items, as well as
+              total $RERRO held.
+            </p>
+          </Text>
         </MaxWidth>
       </Hero>
 
@@ -140,7 +146,7 @@ export default function Leaderboard() {
                   <Heading
                     tag="h1"
                     size={6}
-                    className="mb-3 uppercase text-orange"
+                    className="mb-3 uppercase text-orange font-expanded"
                   >
                     Check your score
                   </Heading>
@@ -203,9 +209,8 @@ export default function Leaderboard() {
                   <Heading
                     tag="h2"
                     size={6}
-                    className="uppercase"
+                    className="uppercase font-expanded"
                     color="orange"
-                    bold
                   >
                     Position
                   </Heading>
@@ -214,9 +219,8 @@ export default function Leaderboard() {
                   <Heading
                     tag="h2"
                     size={6}
-                    className="uppercase"
+                    className="uppercase font-expanded"
                     color="orange"
-                    bold
                   >
                     Player
                   </Heading>
@@ -225,42 +229,43 @@ export default function Leaderboard() {
                   <Heading
                     tag="h2"
                     size={6}
-                    className="uppercase"
+                    className="uppercase font-expanded"
                     color="orange"
-                    bold
                   >
                     $RERROs
                   </Heading>
                 </TableCell>
               </TableHeader>
 
-              {scores.map((score: any, i: number) => {
-                return (
-                  <div className="pt-1 pb-1 pr-3 pl-3" key={i}>
-                    <TableRow>
-                      <TableCell size="s">
-                        <PlainBadge size="small">{i + 1}</PlainBadge>
-                      </TableCell>
-                      <TableCell size="m">
-                        <Text size="xs" className="uppercase">
-                          {ensDomains[score.player] ? (
-                            <>{ensDomains[score.player]}</>
-                          ) : (
-                            <>
-                              {score.player.length > 10
-                                ? score.player.slice(0, 8) + "..."
-                                : score.player}
-                            </>
-                          )}
-                        </Text>
-                      </TableCell>
-                      <TableCell size="m" className="text-right">
-                        <Text size="xs">{score.score.toLocaleString()}</Text>
-                      </TableCell>
-                    </TableRow>
-                  </div>
-                );
-              })}
+              <div className="pt-1 pb-1">
+                {scores.map((score: any, i: number) => {
+                  return (
+                    <div className="pt-1 pb-1 pr-3 pl-3" key={i}>
+                      <TableRow>
+                        <TableCell size="s">
+                          <PlainBadge size="small">{i + 1}</PlainBadge>
+                        </TableCell>
+                        <TableCell size="m">
+                          <Text size="xs" className="uppercase">
+                            {ensDomains[score.player] ? (
+                              <>{ensDomains[score.player]}</>
+                            ) : (
+                              <>
+                                {score.player.length > 10
+                                  ? score.player.slice(0, 8) + "..."
+                                  : score.player}
+                              </>
+                            )}
+                          </Text>
+                        </TableCell>
+                        <TableCell size="m" className="text-right">
+                          <Text size="xs">{score.score.toLocaleString()}</Text>
+                        </TableCell>
+                      </TableRow>
+                    </div>
+                  );
+                })}
+              </div>
             </Box>
           </>
         )}

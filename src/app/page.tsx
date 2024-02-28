@@ -189,7 +189,7 @@ export default function Home() {
               </MaxWidth>
 
               <Heading
-                className="text-center uppercase mt-12 mb-8"
+                className="text-center uppercase mt-12 mb-8 font-expanded"
                 tag="h3"
                 size={6}
               >
@@ -346,10 +346,22 @@ export default function Home() {
 
             <div className="pl-6 pr-6">
               <MaxWidth size="640" className="mt-12 mb-12">
-                <Text className="text-center">
-                  Chaos has erupted: the Digi-Physical Man has absconded with
-                  invaluable artefacts (chipped merch), disrupting the harmony
-                  between physical and digital realms.
+                <Text className="text-center text-black">
+                  <p>
+                    Top $RERRO holders will receive prizes from{" "}
+                    <Link href="https://www.metafactory.ai">MetaFactory</Link>,{" "}
+                    <Link href="https://www.houseog.xyz">House of OG</Link>,{" "}
+                    <Link href="https://kong.cash">Kong Cash</Link>,{" "}
+                    <Link href="https://onchainrecords.store">
+                      On-Chain Records
+                    </Link>
+                    , <Link href="https://mattaglass.com">Matt A Glass</Link>,
+                    as well as others. We will announce winners on the{" "}
+                    <Link href="http://twitter.com/kongiscash">
+                      Kong Land twitter
+                    </Link>
+                    .
+                  </p>
                 </Text>
               </MaxWidth>
             </div>

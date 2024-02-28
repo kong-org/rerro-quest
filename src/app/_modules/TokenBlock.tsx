@@ -32,9 +32,10 @@ export default function TokenBlock({
         />
       </MaxWidth>
 
-      <Heading tag="h4" size={3}>
+      <Heading tag="h4" size={4} className="font-expanded">
         {heading}
       </Heading>
+
       <Heading className="mt-1" tag="h5" size={3} bold={false}>
         {text}
       </Heading>

@@ -9,7 +9,7 @@
 
 .button {
   display: inline-flex;
-  font-weight: bold;
+  font-family: $font2;
   border-radius: 6px;
   text-transform: uppercase;
   transition:
@@ -49,7 +49,7 @@
   &--s {
     line-height: 32px;
     font-size: 12px;
-    padding: 0 20px;
+    padding: 0 12px;
   }
 
   &--l {

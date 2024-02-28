@@ -24,6 +24,8 @@
 
   &__nav {
     margin-bottom: 20px;
+    font-family: $font2;
+    font-weight: 400;
 
     @media (min-width: 640px) {
       display: inline-flex;

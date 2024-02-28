@@ -367,7 +367,7 @@ export default function Register({
 
       <Overlay active={successActive} onClose={handleClose}>
         <MaxWidth size="350" className="text-center">
-          <Heading className="mt-4 mb-5" tag="h2" size={1}>
+          <Heading className="mt-4 mb-5 font-expanded" tag="h2" size={1}>
             Hurrah!
           </Heading>
 

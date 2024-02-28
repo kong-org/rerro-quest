@@ -27,8 +27,8 @@ export default function Footer({
       )}
     >
       <Width>
-        <Text weight="medium" size="s">
-          Made in
+        <Text className="font-expanded">
+          <span style={{ fontSize: 10 }}>Made in</span>
         </Text>
 
         <Link href="https://kong.land">
