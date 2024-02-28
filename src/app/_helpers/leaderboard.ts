@@ -73,6 +73,6 @@ export default async function identifyTopMinters(
       return formatted;
     })
     .filter((a) => {
-      return a.player !== "0xbdc95ca05cc25342ae9a96fb12cbe937efe2e28c";
+      return a.player !== "0x8e683d27A31a0a085A7b4D433a21EEc3ec3CFAb7";
     });
 }

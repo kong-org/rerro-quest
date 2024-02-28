@@ -226,7 +226,7 @@ export default function Home() {
                 <Badge tag="h3">Premise</Badge>
 
                 <p>
-                  Chaos has erupted: the Physi-digital Plunderer has absconded
+                  Chaos has erupted: the Digiphysical Man has absconded
                   with invaluable artifacts (chipped merch), disrupting the
                   harmony between physical and digital realms.
                 </p>
@@ -235,7 +235,7 @@ export default function Home() {
                   Begin by collecting <strong>$RERROs</strong> scattered across
                   the event. These tokens can be found throughout ETHDenver and
                   only champions charged with enough <strong>$RERRO</strong>{" "}
-                  energy will be able to confront the Plunderer and recover the
+                  energy will be able to confront the Digiphysical Man and recover the
                   pilfered artifacts.
                 </p>
 
@@ -259,12 +259,12 @@ export default function Home() {
                 iconSrc="/images/halo-badge.png"
                 heading="HaLo Chipped Items"
                 text="Worn around the event"
-                buttonText="2,000 TOKENS"
+                buttonText="250-500 TOKENS"
               />
               <TokenBlock
                 iconSrc="/images/orb-badge.png"
                 heading="The Colossal $RERRO Orb"
-                text="Held by the Plunderer"
+                text="Held by the Digiphysical Man"
                 buttonText="3,000 TOKENS"
               />
             </div>
@@ -325,7 +325,7 @@ export default function Home() {
             <div className="pl-6 pr-6">
               <MaxWidth size="640" className="mt-12 mb-12">
                 <Text className="text-center">
-                  Chaos has erupted: the Physi-digital Plunderer has absconded
+                  Chaos has erupted: the Digiphysical Man has absconded
                   with invaluable artefacts (chipped merch), disrupting the
                   harmony between physical and digital realms.
                 </Text>

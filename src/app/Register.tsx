@@ -327,10 +327,10 @@ export default function Register({
       <Overlay active={successActive} onClose={handleClose}>
         <MaxWidth size="350" className="text-center">
           <Heading className="mt-4 mb-5" tag="h2" size={1}>
-            Yay!
+            Hurrah!
           </Heading>
 
-          <Text size="lg">Your item has been registered.</Text>
+          <Text size="lg">You've registered an item. You'll earn some $RERRO each time this item is scanned by someone else.</Text>
         </MaxWidth>
       </Overlay>
     </>
