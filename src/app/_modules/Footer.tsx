@@ -31,7 +31,7 @@ export default function Footer({
           <span style={{ fontSize: 10 }}>Made in</span>
         </Text>
 
-        <Link href="https://kong.land">
+        <Link target="_blank" href="https://kong.land">
           <KonglandFlagIcon />
         </Link>
 

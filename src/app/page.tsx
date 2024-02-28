@@ -349,15 +349,27 @@ export default function Home() {
                 <Text className="text-center text-black">
                   <p>
                     Top $RERRO holders will receive prizes from{" "}
-                    <Link href="https://www.metafactory.ai">MetaFactory</Link>,{" "}
-                    <Link href="https://www.houseog.xyz">House of OG</Link>,{" "}
-                    <Link href="https://kong.cash">Kong Cash</Link>,{" "}
-                    <Link href="https://onchainrecords.store">
+                    <Link target="_blank" href="https://www.metafactory.ai">
+                      MetaFactory
+                    </Link>
+                    ,{" "}
+                    <Link target="_blank" href="https://www.houseog.xyz">
+                      House of OG
+                    </Link>
+                    ,{" "}
+                    <Link target="_blank" href="https://kong.cash">
+                      Kong Cash
+                    </Link>
+                    ,{" "}
+                    <Link target="_blank" href="https://onchainrecords.store">
                       On-Chain Records
                     </Link>
-                    , <Link href="https://mattaglass.com">Matt A Glass</Link>,
-                    as well as others. We will announce winners on the{" "}
-                    <Link href="http://twitter.com/kongiscash">
+                    ,{" "}
+                    <Link target="_blank" href="https://mattaglass.com">
+                      Matt A Glass
+                    </Link>
+                    , as well as others. We will announce winners on the{" "}
+                    <Link target="_blank" href="http://twitter.com/kongiscash">
                       Kong Land twitter
                     </Link>
                     .
