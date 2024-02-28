@@ -348,7 +348,8 @@ export default function Home() {
               <MaxWidth size="640" className="mt-12 mb-12">
                 <Text className="text-center text-black">
                   <p>
-                    Top $RERRO holders will receive prizes from{" "}
+                    Top number of scanned items and $RERRO holders will receive
+                    prizes from{" "}
                     <Link target="_blank" href="https://www.metafactory.ai">
                       MetaFactory
                     </Link>
