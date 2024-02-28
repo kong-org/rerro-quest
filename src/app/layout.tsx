@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "$RERRO Quest by Kongland",
   description:
     "Embark on the $RERRO QUEST for your chance to win prizes and glory!",
-  metadataBase: new URL("https://rerro-quest.vercel.app"),
+  metadataBase: new URL("https://rerro.quest"),
   openGraph: {
     images: ["/images/og.png"],
   },
