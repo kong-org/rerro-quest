@@ -138,7 +138,7 @@ export default function Home() {
           color="light"
           isText
         >
-          28th February @ethdenver
+          @ETHDENVER FEBRUARY 28 - MARCH 3 |
         </Marquee>
 
         <div className="space-y-1.25">
