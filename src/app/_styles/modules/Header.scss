@@ -42,7 +42,6 @@
 }
 
 .header-nav {
-  font-weight: 700;
   text-transform: uppercase;
   font-size: 12px;
   display: inline-flex;
@@ -57,6 +56,7 @@
     color: $white;
     transition: 0.2s opacity;
     font-family: $font2;
+    font-weight: normal;
 
     &:hover {
       opacity: 0.75;
