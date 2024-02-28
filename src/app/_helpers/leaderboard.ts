@@ -63,8 +63,6 @@ export default async function identifyTopMinters(
     .sort((a: any, b: any) => b[1] - a[1])
     .slice(0, 100);
 
-  console.log(sortedMinters);
-
   return sortedMinters
     .map((minter) => {
       const formatted = {
