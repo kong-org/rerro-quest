@@ -105,6 +105,14 @@
     }
   }
 
+  .prize-3\.5 {
+    width: calc(200px * 0.5);
+
+    @media (min-width: $largebp) {
+      width: 200px;
+    }
+  }
+
   .prize-4 {
     width: calc(166px * 0.5);
     @media (min-width: $largebp) {
@@ -147,7 +155,8 @@
     }
   }
 
-  .prize-10 {
+  .prize-10,
+  .prize-11 {
     width: calc(178px * 0.5);
     @media (min-width: $largebp) {
       width: 178px;

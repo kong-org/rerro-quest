@@ -23,7 +23,7 @@ import Scan from "./Scan";
 import JubmojiIcon from "./_svg/JubmojiIcon";
 import OcrIcon from "./_svg/OcrIcon";
 import KonglandIcon from "./_svg/KonglandIcon";
-import { useState } from "react";
+import { Fragment, useState } from "react";
 import Register from "./Register";
 
 const prizes = [
@@ -92,6 +92,13 @@ const prizes = [
   },
   {
     url: "/images/prize-10.png",
+    alt: "prize!",
+    width: 178,
+    height: 300,
+    maxWidth: 178,
+  },
+  {
+    url: "/images/prize-11.png",
     alt: "prize!",
     width: 178,
     height: 300,
@@ -226,17 +233,17 @@ export default function Home() {
                 <Badge tag="h3">Premise</Badge>
 
                 <p>
-                  Chaos has erupted: the Digi-Physical Man has absconded
-                  with invaluable artifacts (chipped merch), disrupting the
-                  harmony between physical and digital realms.
+                  Chaos has erupted: the Digi-Physical Man has absconded with
+                  invaluable artifacts (chipped merch), disrupting the harmony
+                  between physical and digital realms.
                 </p>
 
                 <p>
                   Begin by collecting <strong>$RERROs</strong> scattered across
                   the event. These tokens can be found throughout ETHDenver and
                   only champions charged with enough <strong>$RERRO</strong>{" "}
-                  energy will be able to confront the Digi-Physical Man and recover the
-                  pilfered artifacts.
+                  energy will be able to confront the Digi-Physical Man and
+                  recover the pilfered artifacts.
                 </p>
 
                 <Badge tag="h3">Tokens</Badge>
@@ -308,16 +315,31 @@ export default function Home() {
             <Marquee color="dark" speed={50} className="marquee--prizes mt-12">
               {prizes.map((prize, i) => {
                 return (
-                  <div className={`prize prize-${i + 1}`} key={i}>
-                    <Image
-                      key={i}
-                      width={prize.width}
-                      height={prize.height}
-                      className="image"
-                      src={`/images/prize-${i + 1}.png`}
-                      alt={prize.alt}
-                    />
-                  </div>
+                  <Fragment key={prize.url}>
+                    <div className={`prize prize-${i + 1}`} key={prize.url}>
+                      <Image
+                        width={prize.width}
+                        height={prize.height}
+                        className="image"
+                        src={`/images/prize-${i + 1}.png`}
+                        alt={prize.alt}
+                      />
+                    </div>
+                    {i === 3 && (
+                      <div
+                        className={`prize prize-3.5`}
+                        key={"1lm2lk3m4lmlm23"}
+                      >
+                        <Image
+                          width={476}
+                          height={500}
+                          className="image"
+                          src={`/images/prize-3.5.png`}
+                          alt={prize.alt}
+                        />
+                      </div>
+                    )}
+                  </Fragment>
                 );
               })}
             </Marquee>
@@ -325,9 +347,9 @@ export default function Home() {
             <div className="pl-6 pr-6">
               <MaxWidth size="640" className="mt-12 mb-12">
                 <Text className="text-center">
-                  Chaos has erupted: the Digi-Physical Man has absconded
-                  with invaluable artefacts (chipped merch), disrupting the
-                  harmony between physical and digital realms.
+                  Chaos has erupted: the Digi-Physical Man has absconded with
+                  invaluable artefacts (chipped merch), disrupting the harmony
+                  between physical and digital realms.
                 </Text>
               </MaxWidth>
             </div>

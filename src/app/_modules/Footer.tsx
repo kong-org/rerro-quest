@@ -41,7 +41,7 @@ export default function Footer({
               <Link href="/">Home</Link>
             </li>
           )}
-          <li>
+          <li className="desktop-only">
             <Link href="/platformer">Platformer</Link>
           </li>
 

@@ -20,6 +20,13 @@ import contract from "@/lib/contract";
 import isValidEthDomain from "./_helpers/validateEthDomain";
 import provider, { providerMain } from "@/lib/provider";
 import isUsed from "./_helpers/isUsed";
+import {
+  haloRecoverPublicKey,
+  haloConvertSignature,
+  SECP256k1_ORDER,
+  //@ts-ignore
+} from "@arx-research/libhalo/api/common.js";
+import findValidPublicKey from "./_helpers/findValidPublicKey";
 
 interface IProps {
   registerActive: boolean;
@@ -76,11 +83,29 @@ export default function Register({
           value: typedData.value,
         },
         keyNo: 1,
+        legacySignCommand: true,
       });
 
+      // Get address
+      const publicKeys = await haloRecoverPublicKey(
+        chipSig.input.digest,
+        chipSig.signature.der,
+        SECP256k1_ORDER
+      );
+
+      let foundKey = await findValidPublicKey(publicKeys);
+      let chipAddress = foundKey.address;
+
       // Store chip address
-      const chipAddress = chipSig.etherAddress;
       setChipAddress(chipAddress);
+
+      // Convert signature
+      const sig = await haloConvertSignature(
+        chipSig.input.digest,
+        chipSig.signature.der,
+        foundKey.publicKey,
+        SECP256k1_ORDER
+      );
 
       // Store certificate
       const cert = await getSignatureForAddress(chipAddress);
@@ -89,8 +114,6 @@ export default function Register({
       // Already used
       const ownerId = await contract.chipIdOwner(chipAddress);
       const used = isUsed(ownerId);
-
-      console.log({ ownerId, used });
 
       if (used) {
         setError("This chip has already been registered.");
@@ -116,12 +139,12 @@ export default function Register({
               body: JSON.stringify({
                 request: {
                   ...transaction,
-                  from: chipSig.etherAddress,
+                  from: chipAddress,
                 },
                 signature: {
-                  r: "0x" + chipSig.signature.raw.r,
-                  s: "0x" + chipSig.signature.raw.s,
-                  v: chipSig.signature.raw.v,
+                  r: "0x" + sig.raw.r,
+                  s: "0x" + sig.raw.s,
+                  v: sig.raw.v,
                 },
               }),
               headers: { "Content-Type": "application/json" },
@@ -179,7 +202,26 @@ export default function Register({
         value: typedData.value,
       },
       keyNo: 1,
+      legacySignCommand: true,
     });
+
+    // Get address
+    const publicKeys = await haloRecoverPublicKey(
+      chipSig.input.digest,
+      chipSig.signature.der,
+      SECP256k1_ORDER
+    );
+
+    let foundKey = await findValidPublicKey(publicKeys);
+    let chipAddress = foundKey.address;
+
+    // Convert signature
+    const sig = await haloConvertSignature(
+      chipSig.input.digest,
+      chipSig.signature.der,
+      foundKey.publicKey,
+      SECP256k1_ORDER
+    );
 
     // Send it off
     try {
@@ -190,12 +232,12 @@ export default function Register({
           body: JSON.stringify({
             request: {
               ...transaction,
-              from: chipSig.etherAddress,
+              from: chipAddress,
             },
             signature: {
-              r: "0x" + chipSig.signature.raw.r,
-              s: "0x" + chipSig.signature.raw.s,
-              v: chipSig.signature.raw.v,
+              r: "0x" + sig.raw.r,
+              s: "0x" + sig.raw.s,
+              v: sig.raw.v,
             },
           }),
           headers: { "Content-Type": "application/json" },
@@ -203,7 +245,6 @@ export default function Register({
       );
       // Assuming the server responds with JSON
       const responseData = await response.json();
-
       setSuccessActive(true);
     } catch (error) {
       console.error("Failed to post transaction:", error);
@@ -330,7 +371,10 @@ export default function Register({
             Hurrah!
           </Heading>
 
-          <Text size="lg">You've registered an item. You'll earn some $RERRO each time this item is scanned by someone else.</Text>
+          <Text size="lg">
+            You've registered an item. You'll earn some $RERRO each time this
+            item is scanned by someone else.
+          </Text>
         </MaxWidth>
       </Overlay>
     </>

@@ -2,6 +2,14 @@
 
 // @ts-ignore
 import { execHaloCmdWeb } from "@arx-research/libhalo/api/web";
+
+import {
+  haloRecoverPublicKey,
+  haloConvertSignature,
+  SECP256k1_ORDER,
+  //@ts-ignore
+} from "@arx-research/libhalo/api/common.js";
+
 import Image from "next/image";
 import MaxWidth from "./_components/MaxWidth";
 import { Overlay } from "./_modules/Overlay";
@@ -21,6 +29,7 @@ import isValidEthDomain from "./_helpers/validateEthDomain";
 import provider, { providerMain } from "@/lib/provider";
 import isUsed from "./_helpers/isUsed";
 import Link from "next/link";
+import findValidPublicKey from "./_helpers/findValidPublicKey";
 
 interface IProps {
   scanActive: boolean;
@@ -48,6 +57,7 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       return;
     }
 
+    // Build transaction
     const transaction: any = {
       to: contract.address,
       value: 0,
@@ -74,11 +84,38 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           value: typedData.value,
         },
         keyNo: 1,
+        legacySignCommand: true,
       });
 
+      // Get address
+      const publicKeys = await haloRecoverPublicKey(
+        chipSig.input.digest,
+        chipSig.signature.der,
+        SECP256k1_ORDER
+      );
+
+      let foundKey = await findValidPublicKey(publicKeys);
+      let chipAddress = foundKey.address;
+
       // Store chip address
-      const chipAddress = chipSig.etherAddress;
       setChipAddress(chipAddress);
+
+      // Convert signature
+      const sig = await haloConvertSignature(
+        chipSig.input.digest,
+        chipSig.signature.der,
+        foundKey.publicKey,
+        SECP256k1_ORDER
+      );
+
+      // Check the owner id
+      const ownerId = await contract.chipIdOwner(chipAddress);
+
+      if (isUsed(ownerId) && ownerId !== address) {
+        setError("This chip is owned by someone else.");
+        setBusy(false);
+        return;
+      }
 
       // Store certificate
       const cert = await getSignatureForAddress(chipAddress);
@@ -112,12 +149,12 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
               body: JSON.stringify({
                 request: {
                   ...transaction,
-                  from: chipSig.etherAddress,
+                  from: chipAddress,
                 },
                 signature: {
-                  r: "0x" + chipSig.signature.raw.r,
-                  s: "0x" + chipSig.signature.raw.s,
-                  v: chipSig.signature.raw.v,
+                  r: "0x" + sig.raw.r,
+                  s: "0x" + sig.raw.s,
+                  v: sig.raw.v,
                 },
               }),
               headers: { "Content-Type": "application/json" },
@@ -133,8 +170,8 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           setSuccessActive(true);
           setError("");
         } catch (error) {
+          console.log(error);
           setError("Something went wrong.");
-          console.error("Failed to post transaction:", error);
         }
       }
     } catch (err) {
@@ -179,7 +216,26 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
         value: typedData.value,
       },
       keyNo: 1,
+      legacySignCommand: true,
     });
+
+    // Get address
+    const publicKeys = await haloRecoverPublicKey(
+      chipSig.input.digest,
+      chipSig.signature.der,
+      SECP256k1_ORDER
+    );
+
+    let foundKey = await findValidPublicKey(publicKeys);
+    let chipAddress = foundKey.address;
+
+    // Convert signature
+    const sig = await haloConvertSignature(
+      chipSig.input.digest,
+      chipSig.signature.der,
+      foundKey.publicKey,
+      SECP256k1_ORDER
+    );
 
     // Send it off
     try {
@@ -190,12 +246,12 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           body: JSON.stringify({
             request: {
               ...transaction,
-              from: chipSig.etherAddress,
+              from: chipAddress,
             },
             signature: {
-              r: "0x" + chipSig.signature.raw.r,
-              s: "0x" + chipSig.signature.raw.s,
-              v: chipSig.signature.raw.v,
+              r: "0x" + sig.raw.r,
+              s: "0x" + sig.raw.s,
+              v: sig.raw.v,
             },
           }),
           headers: { "Content-Type": "application/json" },

@@ -42,7 +42,6 @@ export default async function identifyTopMinters(
   fromBlock = 0,
   toBlock = "latest"
 ) {
-  // console.log(`Identifying top minters for token: ${tokenAddress}`);
   const transactions = await getMintingTransactions(
     tokenAddress,
     fromBlock,
