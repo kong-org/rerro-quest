@@ -78,13 +78,6 @@ export default function Header({ className, showBack, onStart }: IProps) {
                 </Link>
               )}
             </li>
-            {!showBack && (
-              <li>
-                <Button onClick={onStart} size="s" color="orange-gradient">
-                  Register Item
-                </Button>
-              </li>
-            )}
           </ul>
         </div>
       </Width>
