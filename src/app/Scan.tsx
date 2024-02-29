@@ -111,8 +111,8 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       // Check the owner id
       const ownerId = await contract.chipIdOwner(chipAddress);
 
-      if (isUsed(ownerId) && ownerId !== address) {
-        setError("This chip is owned by someone else.");
+      if (isUsed(ownerId) && ownerId == address) {
+        setError("You cannot claim your own chip.");
         setBusy(false);
         return;
       }
