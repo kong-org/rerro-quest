@@ -442,7 +442,7 @@ export default function Home() {
 
       <Footer
         onScan={() => setScanActive(true)}
-        onRegister={() => setScanActive(true)}
+        onRegister={() => setRegisterActive(true)}
       />
 
       <Scan scanActive={scanActive} setScanActive={setScanActive} />
