@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect } from "react";
 import Width from "@/app/_components/Width";
 import classNames from "classnames";
