@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Width from "@/app/_components/Width";
 import classNames from "classnames";
 import Link from "next/link";
@@ -18,6 +18,12 @@ export default function Footer({
   onRegister,
   back,
 }: IProps) {
+  const handleClear = () => {
+    localStorage.removeItem("addressInput");
+    localStorage.removeItem("address");
+    window.location.reload();
+  };
+
   return (
     <footer
       className={classNames(
@@ -63,6 +69,11 @@ export default function Footer({
               </button>
             </li>
           )}
+          <li>
+            <button className="uppercase font-expanded" onClick={handleClear}>
+              Clear saved address
+            </button>
+          </li>
         </ul>
 
         <p className="footer__copy">&copy; Copyright Kong Land 2024</p>

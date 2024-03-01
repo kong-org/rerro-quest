@@ -167,6 +167,9 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
           scanned[chipAddress] = true;
           localStorage.setItem("scanned", JSON.stringify(scanned));
 
+          localStorage.setItem("address", address);
+          localStorage.setItem("addressInput", addressInput);
+
           setSuccessActive(true);
           setError("");
         } catch (error) {
@@ -266,6 +269,9 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       scanned[chipAddress] = true;
       localStorage.setItem("scanned", JSON.stringify(scanned));
 
+      localStorage.setItem("address", address);
+      localStorage.setItem("addressInput", addressInput);
+
       setSuccessActive(true);
     } catch (error) {
       console.error("Failed to post transaction:", error);
@@ -314,6 +320,11 @@ export default function Scan({ scanActive, setScanActive }: IProps) {
       setBusy(false);
     }
   }, [addressInput]);
+
+  useEffect(() => {
+    const address = localStorage.getItem("addressInput");
+    if (address) setAddressInput(address);
+  }, []);
 
   return (
     <>
